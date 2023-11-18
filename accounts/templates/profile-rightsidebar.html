@@ -1,0 +1,462 @@
+<div class="col mx-3 bg-white shadow py-3" style="border-radius:5px;">
+
+    <div class="row">
+ 
+      <div class="col-sm-3 ">
+        <div class="card text-center shadow" style="background-color: #071952;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Agent</h5>
+            <hr>
+            <h5 class="card-text">{{agent.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 ">
+        <div class="card text-center shadow " style="background-color: #088395;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># University</h5>
+            <hr>
+            <h5 class="card-text">{{university.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 ">
+        <div class="card text-center shadow" style="background-color: #363062;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Courses </h5>
+            <hr>
+            <h5 class="card-text">{{course.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 ">
+        <div class="card text-center shadow" style="background-color: #435585;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Student </h5>
+            <hr>
+            <h5 class="card-text">{{student.count}}</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #0B666A;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Student Application </h5>
+            <hr>
+            <h5 class="card-text">{{application.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #512B81;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Agent Application </h5>
+            <hr>
+            <h5 class="card-text">{{agentapplication.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #E7B10A;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Agent Application Status</h5>
+            <hr>
+            {% for item in status_counts %}
+            <span class="card-text">{{ item.application_status }}-{{ item.status_count}}  {% if not forloop.last %} | {% endif %}</span>
+            {% endfor %}
+        
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #CD1818;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Student Application Status</h5>
+            <hr>
+            {% for item in status_counts_student %}
+            <span class="card-text">{{ item.application_status }}-{{ item.status_count }} {% if not forloop.last %} | {% endif %}</span>
+            
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    <br>
+    <br>
+
+  <div class="mt-5" >
+        <ul class="nav nav-tabs" id="myTabs" style="nav-link:decoration-none;">
+         
+          <li class="nav-item">
+            <a class="nav-link active link-dark" data-bs-toggle="tab" href="#tab1">User Information</a>
+          </li>      
+          <li class="nav-item">
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#agentapplication">Agents Application</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#studentapplication">Students Application</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#student">All Students</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#agent">Recuritment Partners</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#partners">Intitutional Partners</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#university">All Universities</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#campus">All Campus</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#course">All Courses</a>
+          </li>
+   
+        </ul>
+       
+        <div class="tab-content p-3 card">
+          <div class="tab-pane fade show active" id="tab1">
+            <br>
+            <h5 class="card-title"> Welcome to Admission Network</h5>
+            <br>
+            <span><strong>Your Email Address:</strong> {{user.username}}</span> <br>
+            <span><strong>User Status:</strong> {{user.userprofile.userrole}}</span>
+         
+          </div>
+          <div class="tab-pane fade" id="agentapplication">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >Application Date</th>
+                  <th >Agnet Email</th>
+                  <th >Student Name</th>
+                  <th >Applied Univerity</th>
+                  <th >Applied Course</th>
+                  <th >Course Intake</th>
+                  <th >Application Status</th>
+                  <th >Agent Message</th>
+                  <th colspan="3">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for agentapplication in agentapplication %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{agentapplication.application_date}}</td>
+                  <td>{{agentapplication.applicant}}</td>
+                  <td>{{agentapplication.student_name}}</td>
+                  <td>{{agentapplication.university}}</td>
+                  <td>{{agentapplication.course}}</td>
+                  <td>{{agentapplication.intake}}</td>
+                  <td>{{agentapplication.application_status}}</td>
+                  <td>{{agentapplication.messages|truncatechars:10}}</td>
+               
+                  <td>
+                    <a href="{% url 'agent_application' agentapplication.id %}" class="btn btn-success btn-sm">View </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'agent_application_edit' agentapplication.id %}" class="btn btn-success btn-sm">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'agent_application_delete' agentapplication.id %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="studentapplication">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >Application Date</th>
+                  <th >Student Email</th>
+                  <th >Student Phone</th>
+                  <th >Applied Univerity</th>
+                  <th >Applied Course</th>
+                  <th >Course Intake</th>
+                  <th >Application Status</th>
+                  <th >Student Message</th>
+                  <th colspan="3">Actions</th>
+                 
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for application in application %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{application.application_date}}</td>
+                  <td>{{application.applicant}}</td>
+                  <td>{{application.applicant.userprofile.phone}}</td>
+                  <td>{{application.university}}</td>
+                  <td>{{application.course}}</td>
+                  <td>{{application.intake}}</td>
+                  <td>{{application.application_status}}</td>
+                  <td>{{application.messages|truncatechars:10}}</td>
+                  
+                  <td>
+                    <a href="{% url 'student_application' application.pk %}" class="btn btn-success btn-sm">View </a>
+                    
+                  </td>
+                  <td>
+                    <a href="{% url 'student_application_edit' application.pk %}" class="btn btn-success btn-sm">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'student_application_delete' application.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="student">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >First Name</th>
+                  <th >Last Name</th>
+                  <th >Email Address</th>
+                  <th >Role</th>
+                  <th >Phone</th>
+                  <th >Address</th>
+                  <th >City</th>
+                  <th >State</th>
+                  <th >Country</th>
+                  
+                  <th colspan="2">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for student in student%}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{student.first_name}}</td>
+                  <td>{{student.last_name}}</td>
+                  <td>{{student.email}}</td>
+                  <td>{{student.userprofile.userrole}}</td>
+                  <td>{{student.userprofile.phone}}</td>
+                  <td>{{student.userprofile.address}}</td>
+                  <td>{{student.userprofile.city}}</td>
+                  <td>{{student.userprofile.state}}</td>
+                  <td>{{student.userprofile.country}}</td>
+
+                 
+                  <td>
+                    <a href="{% url 'studentedit' student.id %}" class="btn btn-success btn-sm">Edit</a>
+                  
+                  </td>
+                  <td>
+              
+                    <a href="{% url 'studentdelete' student.id %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                 
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="agent">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >First Name</th>
+                  <th >Last Name</th>
+                  <th >Email Address</th>
+                  <th >Role</th>
+                  <th >Phone</th>
+                  <th >Address</th>
+                  <th >City</th>
+                  <th >State</th>
+                  <th >Country</th>
+                  <th colspan="2">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for agent in agent%}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{agent.first_name}}</td>
+                  <td>{{agent.last_name}}</td>
+                  <td>{{agent.email}}</td>
+                  <td>{{agent.userprofile.userrole}}</td>
+                  <td>{{agent.userprofile.phone}}</td>
+                  <td>{{agent.userprofile.address}}</td>
+                  <td>{{agent.userprofile.city}}</td>
+                  <td>{{agent.userprofile.state}}</td>
+                  <td>{{agent.userprofile.country}}</td>
+                  
+                  <td>
+                    <a href="{% url 'agentedit' agent.id %}" class="btn btn-success btn-sm">Edit</a>
+                 
+                  </td>
+                  <td>
+             
+                    <a href="{% url 'agentdelete' agent.id %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="partners">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >First Name</th>
+                  <th >Last Name</th>
+                  <th >Email Address</th>
+                  <th >Role</th>
+                  <th >Phone</th>
+                  <th >Address</th>
+                  <th >City</th>
+                  <th >State</th>
+                  <th >Country</th>
+                  <th colspan="2">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for partner in partner %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{partner.first_name}}</td>
+                  <td>{{partner.last_name}}</td>
+                  <td>{{partner.email}}</td>
+                  <td>{{partner.userprofile.userrole}}</td>
+                  <td>{{partner.userprofile.phone}}</td>
+                  <td>{{partner.userprofile.address}}</td>
+                  <td>{{partner.userprofile.city}}</td>
+                  <td>{{partner.userprofile.state}}</td>
+                  <td>{{partner.userprofile.country}}</td>
+                  
+                  <td>
+                    <a href="{% url 'partner_edit' partner.pk %}" class="btn btn-success btn-sm">Edit</a>
+                 
+                  </td>
+                  <td>
+             
+                    <a href="{% url 'partner_delete' partner.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="university">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >Univerity Name</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for university in university %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{university.name}}</td>
+                  
+
+                  <td>
+                    <a href="{% url 'university' university.pk %}" class="btn btn-success btn-sm">View Details</a>
+                  </td>
+              
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="campus">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Univerity Name</th>
+                  <th>Campus Name</th>
+                  <th> Address</th>
+                  <th> City</th>
+                  <th> State</th>
+                  <th> Zip</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for campus in campus%}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{campus.university}}</td>
+                  <td>{{campus.name}}</td>
+                  <td>{{campus.stree}}</td>
+                  <td>{{campus.city}}</td>
+                  <td>{{campus.state}}</td>
+                  <td>{{campus.zip_code}}</td>
+                  <td>{{campus.country}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="course">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name of Univerity</th>
+                  <th>Course Name</th>
+                  <th>Course Level</th>
+                  <th>Course Duration</th>
+                  <th>Fees</th>
+                  <th colspan="3">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for course in course %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{course.university}}</td>
+                  <td>{{course.name}}</td>
+                  <td>{{course.degree_level}}</td>
+                  <td>{{course.duration}}</td>
+                  <td>&#163;{{course.fees}}</td>
+                  <td>
+                    <a href="{% url 'courseDetails' course.pk %}" class="btn btn-success btn-sm">View </a>
+                    
+                  </td>
+                  <td>
+                    <a href="{% url 'course_edit' course.pk %}" class="btn btn-success btn-sm">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'course_delete' course.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+   
+
+
+        </div>
+      </div>
+  </div>
+
+
+</div>

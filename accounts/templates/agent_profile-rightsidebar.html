@@ -1,0 +1,222 @@
+<div class="col mx-3 bg-white shadow py-3" style="border-radius:5px;">
+
+    <div class="row d-flex justify-content-center">
+ 
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #512B81;">
+          <div class="card-body text-white">
+            <h5 class="card-title"> Total Application </h5>
+            <hr>
+            <h5 class="card-text">{{particular_agent_application.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #03C988;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Application Accepted</h5>
+            <hr>
+            <h5 class="card-text">{{agent_application_accepted.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #F1D00A;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Application Pending</h5>
+            <hr>
+            <h5 class="card-text">{{agent_application_pending.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #46244C;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Application On Process</h5>
+            <hr>
+            <h5 class="card-text">{{agent_application_onprocess.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #F94C10;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Application Rejected</h5>
+            <hr>
+            <h5 class="card-text">{{agent_application_rejected.count}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #C74B50;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Application Returned</h5>
+            <hr>
+            <h5 class="card-text">{{agent_application_returned.count}}</h5>
+          </div>
+        </div>
+      </div>
+    <br>
+    <br>
+
+  <div class="mt-5" >
+        <ul class="nav nav-tabs" id="myTabs" style="nav-link:decoration-none;">
+         
+          <li class="nav-item">
+            <a class="nav-link active link-dark" data-bs-toggle="tab" href="#tab1">User Information</a>
+          </li>     
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#allapplication">All Applications</a>
+          </li> 
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#university">All Universities</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#campus">All Campus</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#course">All Courses</a>
+          </li>
+   
+        </ul>
+       
+        <div class="tab-content p-3 card">
+          <div class="tab-pane fade show active" id="tab1">
+            <br>
+            <h5 class="card-title"> Welcome to Admission Network</h5>
+            <br>
+            <span><strong>Your Email Address:</strong> {{user.username}}</span> <br>
+            <span><strong>User Status:</strong> {{user.userprofile.userrole}}</span>
+         
+          </div>
+          <div class="tab-pane fade" id="allapplication">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+              
+                  <th >Student Name</th>
+                  <th >Univerity Name</th>
+                  <th >Course Applied</th>
+                  <th >Course Inake</th>
+                  <th >Applicaiton Status</th>
+                  <th >Applicaiton Date</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for a in particular_agent_application %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                 
+                  <td>{{a.student_name}}</td>
+                  <td>{{a.university}}</td>
+                  <td>{{a.course}}</td>
+                  <td>{{a.intake}}</td>
+                  <td>{{a.application_status}}</td>
+                  <td>{{a.application_date}}</td>
+                  <td>
+                    <a href="{% url 'agent_application' a.pk %}" class="btn btn-success btn-sm">View Details</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="university">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th >Univerity Name</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for university in university %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{university.name}}</td>
+                  
+
+                  <td>
+                    <a href="{% url 'university' university.pk %}" class="btn btn-success btn-sm">View Details</a>
+                  </td>
+              
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="campus">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Univerity Name</th>
+                  <th>Campus Name</th>
+                  <th> Address</th>
+                  <th> City</th>
+                  <th> State</th>
+                  <th> Zip</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for campus in campus%}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{campus.university}}</td>
+                  <td>{{campus.name}}</td>
+                  <td>{{campus.stree}}</td>
+                  <td>{{campus.city}}</td>
+                  <td>{{campus.state}}</td>
+                  <td>{{campus.zip_code}}</td>
+                  <td>{{campus.country}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="course">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name of Univerity</th>
+                  <th>Course Name</th>
+                  <th>Course Level</th>
+                  <th>Course Duration</th>
+                  <th>Fees</th>
+                  <th colspan="3">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for course in course %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{course.university}}</td>
+                  <td>{{course.name}}</td>
+                  <td>{{course.degree_level}}</td>
+                  <td>{{course.duration}}</td>
+                  <td>&#163;{{course.fees}}</td>
+                  <td>
+                    <a href="{% url 'courseDetails' course.pk %}" class="btn btn-success btn-sm">View </a>
+                    <a href="{% url 'agent_application_create' course.university.pk course.pk  %}" class="btn btn-success btn-sm">Apply Now</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+   
+
+
+        </div>
+      </div>
+  </div>
+
+
+</div>

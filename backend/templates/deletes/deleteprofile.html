@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section style="background-color: #eee;">
+  <div class="row m-2 py-2">
+   {% include "profile-sidebar.html" %}
+
+    <div  class="col mx-3 bg-white shadow py-3" >
+        <a href="{% url 'userprofile'%}" class="btn btn-success m-3"> Back </a>
+        <div class="card mb-3">
+          <div class="row g-0"  style="background-color:#D80032; border-radius:10px;">
+            <div class="col-md-8 align-self-center">
+              <div class="card-body p-5 text-white">
+                <h5 class="mb-3"> You are about to delete a {{data.userprofile.userrole}} Profile, Are you sure to delete this profile?</h5>
+                <span>Name - {{data.first_name}} {{data.last_name}}</span> <br>
+                <span>Email - {{data.username}} </span><br>
+                <span>User Role - {{data.userprofile.userrole}} </span><br>
+                <span>User Phone - {{data.userprofile.phone}} </span><br>
+                <span>Country - {{data.userprofile.country}} </span>
+                
+                <form method="post" class="form mt-4">
+                    {% csrf_token %}
+                    <input type="submit"class="btn btn-light" value="Delete Confirm">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

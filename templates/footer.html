@@ -1,0 +1,42 @@
+{% load static %}
+{% block content %}
+
+<footer class="container-fluid text-light p-0" style="background-color: #192655;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-3">
+       
+          <a href="{% url "index" %}"><img src="{% static "images/LOGO-FINAL.png" %}" alt="" style="height:80px;" class="mb-2"></a> <br>
+          <a href="https://www.facebook.com/admissionnetworkltd/" target="_blank"  class="px-2"><i class="bi bi-facebook" style="font-size: 2rem; color: white;"></i></a>
+          <a href="https://www.instagram.com/admissionnetworkltd/" target="_blank" class="px-2"><i class="bi bi-instagram" style="font-size: 2rem; color: white;"></i></a>
+          <a href="#" class="px-2"><i class="bi bi-whatsapp" style="font-size: 2rem; color: white;"></i></a>
+          
+        </div>
+        <div class="col-md-2">
+          <h5><U>Quick Links</U></h5>
+          <p><a href="{% url "index" %}" class="link-style">Home</a></p>
+          <p><a href="{% url "about-us" %}" class="link-style">About Us</a></p>
+          <p><a href="{% url "contact_us" %}" class="link-style">Contact Us</a></p>
+        </div>
+        <div class="col-md-2">
+          <h5>Stydy in UK</h5>
+          <p><a href="{% url "why_UK" %}" class="link-style">Why UK</a></p>
+          <p><a href="{% url "uk_universities" %}" class="link-style">UK Universities</a></p>
+          <p><a href="{% url "application_process" %}" class="link-style">Application Process</a></p>
+        </div>
+        <div class="col-md-5">
+          <h5>Contact Us</h5>
+         <p>  <i class="bi bi-geo-alt" style="font-size: 2rem; color: white;"></i> UNIT-605, 252-262 Romfoard Road, Forest Gate, London, E7 9HZ</p>
+          <p> <i class="bi bi-telephone-forward" style="font-size: 2rem; color: white;"></i>  07961434456 / 07949779012</p>
+          <i class="bi bi-envelope-at" style="font-size: 2rem; color: white;"></i>  <a href="mailto:enquiries@admissionnetwork.net" target="_blank" class="link-style">enquiries@admissionnetwork.net | </a> </span>
+          <span class="card-text">  <a href="mailto:uk@admissionnetwork.net" target="_blank" class="link-style">uk@admissionnetwork.net</a> </span>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid  p-3" style="background-color: #192689;">
+      <p class="text-center">&copy; 2023 Admission Network</p>
+    </div>
+  </footer>
+  
+  
+  {% endblock content %}

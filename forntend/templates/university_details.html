@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="background-image ">
+    <!-- Content you want to display on top of the background image goes here -->
+      <h1>{{university.name}}</h1> <br>
+      <h3><a href="#" class="link-style"><strong>Book Appointment</strong></a> for 100% Free Consultancy </h3>  
+</div>
+<section style="background-color: #eee;">
+  <div class="row m-2 py-2">
+    <div class="col-3 bg-white py-3">
+        <div class="row">
+            <div class="mb-3">
+                <h4>Degree Offers</h4>
+                <hr>
+                <button class="btn btn-success m-1"><a href="#" class="link-style">Post-Graduate</a> </button>
+                <button class="btn btn-success m-1"><a href="#" class="link-style">Graduate</a> </button>
+                <button class="btn btn-success m-1"><a href="#" class="link-style">Diploma</a> </button>
+            </div>
+
+            <div class="p-3 text-white"  style="background-color:#363062">
+                <h4>Available Campus(s)</h4>
+                <hr>
+                {% for campus in university.campus_set.all %}
+                <div class="">
+                 <div class="card m-2">
+                   <div class="card-body text-black">
+                     <h5 class="card-title">{{campus.name}}</h5>
+                     <h5 ><u>Address</u></h5>
+                     <span class="card-text">{{campus.stree}}, {{campus.city}}</span>
+                     <span class="card-text">{{campus.state}}, {{campus.zip_code}}</span>
+                     <span class="card-text">{{campus.country}}</span>
+                   </div>
+                 </div>
+                </div>
+               {% endfor %}
+            </div>
+
+            <div class="p-3" style="background-color:#435585">
+                <p class=" fs-5 text-white" >Available Inatkes</p>
+              
+                {% for intake in university.intakes.all %}
+                <button class="btn btn-light m-2"><strong>{{ intake.name }}</strong> - {{intake.start_from}} to {{intake.end_at}}  </button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div  class="col mx-3 p-5 bg-white shadow " style="border-radius:5px;">
+  
+        <div class="p-2">
+            <h3>About {{university.name}}</h3>
+            <p>{{university.deatils|safe}}</p>
+        </div>
+        <div style=" border-radius:5px;">
+          <p class=" fs-3  text-uppercase" >Course Offers</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Course Level</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Course Cost</th>
+                
+                <th colspan="3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course  in university.course_set.all %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{course.name}}</td>
+                <td>{{course.degree_level}}</td>
+                <td>{{course.duration}}</td>
+                <td>&#163;{{course.fees}}</td>
+                <td>
+                    <a href="{% url 'course_details' course.pk %}" class="btn btn-success btn-sm m-1">Details</a>
+                    {% if user.userprofile.userrole == "Student" %}
+                    <a href="{% url 'student_application_create' course.university.pk course.pk  %}" class="btn btn-success btn-sm m-1">Apply</a>
+                    {% else %}
+                    <a href="{% url 'agent_application_create' course.university.pk course.pk  %}" class="btn btn-success btn-sm m-1">Apply</a>
+                    {% endif %}
+                 </td>
+                
+                 
+              </tr>
+             {% endfor %}
+
+        
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

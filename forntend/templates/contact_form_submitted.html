@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+
+<div class="container-fluid p-0">
+
+    <div class="background-image ">
+      <!-- Content you want to display on top of the background image goes here -->
+      <h1>Contact Us </h1> <br>
+      <h3><a href="#" class="link-style"><strong>Book Appointment</strong></a></h3>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row justify-content-center m-5">
+            <div class="alert alert-success p-5 text-center" role="alert">
+               <h2>Thank You!</h2>
+               <p> We've received your message. One of our executive will contact you shortly</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    
+{% endblock content %}
+
+

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section style="background-color: #eee;">
+  <div class="row m-2 py-2">
+   {% include "profile-sidebar.html" %}
+    <div  class="col mx-3 bg-white shadow p-2" style="border-radius:5px;">
+        <div class="card mb-3">
+          <div class="row g-0"  style="background-color:#363062">
+            <div class="col-md-8 align-self-center">
+              <div class="card-body ">
+                <h1 class="card-title text-white ">Details of Student Application</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+            <a href="{% url 'userprofile' %}" class="btn btn-success">Back to Main Menu</a>
+        </div>
+        <div class="px-5 mt-4">
+            <table class="table table-hover mb-5">
+                <thead>
+                  <tr>
+                    <th scope="col" class="col-2">Content</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Application Date</th>
+                    <td>{{application.application_date}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Student Name</th>
+                    <td>{{application.applicant.first_name}} {{application.applicant.last_name}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Student Email</th>
+                    <td>{{application.applicant}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Course Applied</th>
+                    <td>{{application.course}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Course Intake</th>
+                    <td>{{application.intake}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Application Status</th>
+                    <td>{{application.application_status}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SSC Certificate</th>
+                    <td>
+                    {% if application.ssc_certificate %}
+                    <a href="{{application.ssc_certificate.url}}" class='btn btn-outline-success btn-sm' target="_blank">Download</a>
+                    {% else %}
+                    None
+                    {% endif %}
+                   </td>
+                  <tr>
+                    <th scope="row">HSC Certificate</th>
+                    <td> {% if application.hsc_certificate %}
+                        <a href="{{application.hsc_certificate.url}}" class='btn btn-outline-success btn-sm' target="_blank">Download</a>
+                        {% else %}
+                        None
+                        {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bachelor Certificate</th>
+                   <td>
+                    {% if application.bachelor_certificate %}
+                    <a href="{{application.bachelor_certificate.url}}" class='btn btn-outline-success btn-sm' target="_blank">Download</a>
+                    {% else %}
+                    None
+                    {% endif %}
+                   </td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">IELTS Certificate</th>
+                    <td>
+                        {% if application.ielts_certificate %}
+                        <a href="{{application.ielts_certificate.url}}" class='btn btn-outline-success btn-sm' target="_blank">Download</a>
+                        {% else %}
+                        None
+                        {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Personal Statement</th>
+                    <td >
+                        {% if application.statement %}
+                        <a href="{{application.statement.url}}" class='btn btn-outline-success btn-sm' target="_blank">Download</a>
+                        {% else %}
+                        None
+                        {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Student Message</th>
+                    <td>{{application.messages}}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+           
+
+          
+            
+        </div>
+        
+      
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

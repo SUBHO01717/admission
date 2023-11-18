@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section style="background-color: #eee;">
+  <div class="row m-2 py-3">
+  
+   {% include "profile-sidebar.html" %}
+   {% if user.userprofile.userrole == "Agent" %}
+   {% include "agent_profile-rightsidebar.html" %}
+   {% elif user.userprofile.userrole == "Student" %}
+   {% include "student_profile-rightsidebar.html" %}
+   {% elif user.userprofile.userrole == "Partner" %}
+   {% include "partner_profile-rightsidebar.html" %}
+   {% else %}
+   {% include "profile-rightsidebar.html" %}
+   {% endif%}
+
+  </div>
+</section>
+
+{% endblock content %}

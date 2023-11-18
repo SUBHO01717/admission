@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-0">
+    <div class="background-image ">
+      <!-- Content you want to display on top of the background image goes here -->
+        <h1>USA Universities we represent</h1> <br>
+        <h3><a href="#" class="link-style"><strong>Book Appointment</strong></a> for 100% Free Consultancy </h3>  
+    </div>
+    <div class="container-fluid" style="background-color:#F5F7F8;">
+      <div class="row ">
+     
+          <div class="col  p-5">
+            <div class="row">
+              {% for university in  univerities %}
+                <div class="col-sm-4">
+                  <div class="card shadow h-100 text-center">
+                      {% if university.logo %}
+                      <img src="{{university.logo.url}}" class="img-fluid img-thumbnail" alt="Logo" >
+                      {% else %}
+                      <p>Logo</p>
+                      {% endif %}
+                    <div class="card-body">
+                      <h5 class="card-title">{{university.name}}</h5>
+                     <a href="{% url 'universrity_details' university.id %}" class="btn btn-primary">Details</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+
+{% endblock content %}
+
+

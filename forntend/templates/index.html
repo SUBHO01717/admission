@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        
+    </div>
+    <div class="carousel-inner ">
+        <div class="carousel-item active  drk ">
+            <img src="{% static "images/slide-1.jpg" %}" class="d-block w-100" alt="..." style="height: 600px;">
+            <div class="carousel-caption align-items-center justify-content-center ">
+                <h1>Admission Network</h1>
+                <p class="fs-3">Lets start your journey with us!</p>
+            </div>
+        </div>
+        <div class="carousel-item drk">
+            <img src="{% static "images/slide-2.jpg" %}" class="d-block w-100" alt="..." style="height: 600px;">
+            <div class="carousel-caption d-none d-md-block text-center">
+                <h2>Second slide label</h2>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container-fluid p-5" style="background-color:#ECF8F9;">
+  <div class="text-center">
+    <h3 class="p-5">Admission Network connects international students, educational institutes and recruitment partners to provide educational opportunities around the world.</h3>
+  </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color:#F5F5F5;">
+  <div class="row">
+    <h1 class="text-center mb-5">Who we works for </h1>
+    <div class="col">
+      <div class="card h-100 shadow text-center card2" style="border-radius: 50px 20px;" >
+        <i class="bi bi-mortarboard-fill" style="font-size: 5rem; color: #071952;"></i>
+        <div class="card-body">
+          <h4 class="card-title px-3 ">STUDENTS</h4>
+          <p class="card-text p-3">Choose and apply to a Higher education course from a range of Universities and Colleges that matches your educational background, experience & interests.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow text-center card2" style="border-radius: 50px 20px;" >
+        <i class="bi bi-globe-central-south-asia" style="font-size: 5rem; color: #164863;"></i>
+        <div class="card-body">
+          <h4 class="card-title px-3 ">RECRUITMENT PARTNERS</h4>
+          <p class="card-text p-3">Give your students a chance to successfully access and peruse their education in a range of prestigious educational institutions around the world.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 shadow text-center card2" style="border-radius: 50px 20px;" >
+        <i class="bi bi-building-fill" style="font-size: 5rem; color: #363062;"></i>
+        <div class="card-body">
+          <h4 class="card-title px-3 ">PARTNER SCHOOLS, COLLEGES AND UNIVERSITIES</h4>
+          <p class="card-text p-3">Diversify your campus by bringing in quality students from around the world.</p>
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color:#FFF;">
+  <div class="row p-5">
+ 
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">STUDENTS</h3>
+      <h2 class="pb-3">Easy Student Application Process</h2>
+      <p>
+        Using the Admission Network Platform, will allow our students and recruitment partners to have an easy access to apply to the educational institutions around the world and most renown programmes.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid p-5" style="background-color:#F8F0E5;">
+  <div class="row p-5">
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">STUDENTS</h3>
+      <h2 class="pb-3">Pursue Your Dream of International education abroad</h2>
+      <p>
+        Access to opportunities of Higher education around the world to apply to programs at Universities and Colleges that meet your future goals and needs. A great pathway to start your study abroad journey!
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+   
+  </div>
+</div>
+<div class="container-fluid p-5" style="background-color:#FFF;">
+  <div class="row p-5">
+ 
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">PARTNER SCHOOLS, COLLEGES AND UNIVERSITIES</h3>
+      <h2 class="pb-3">Bring in Diverse Quality Students</h2>
+      <p>
+        The Admission Network Platform leads you to enhance the diversity of your campus by linking you with highly motivated quality students from around the world.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid p-5" style="background-color:#F8F0E5;">
+  <div class="row p-5">
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">RECRUITMENT PARTNERS</h3>
+      <h2 class="pb-3">Further Your Student's Educational Success</h2>
+      <p>
+        Deliver our students an exceptional application experience at Universities and Colleges by providing them quality service with improved efficiency.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+   
+  </div>
+</div>
+<div class="container-fluid p-5" style="background-color:#FFF;">
+  <div class="row p-5">
+ 
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">STUDENTS</h3>
+      <h2 class="pb-3">Access to better Opportunities</h2>
+      <p>
+        Admission Network has built partnerships with prestigious universities and colleges, to give our students the best around the world.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid p-5" style="background-color:#F8F0E5;">
+  <div class="row p-5">
+    <div class="col-md-6 px-5 align-self-center">
+      <h3 class="text-black-50">STUDENTS</h3>
+      <h2 class="pb-3">Scholarships</h2>
+      <p>
+        Admission Network guides our students around the world with their applications on global education. Admission Network also provide qualified students with scholarships facilities
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>
+   
+  </div>
+</div>
+
+
+  
+  </div>
+</div>
+
+
+
+</div>
+{% endblock content %}
+
+
