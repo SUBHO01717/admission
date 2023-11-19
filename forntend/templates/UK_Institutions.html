@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-0">
+    <div class="background-image ">
+      <!-- Content you want to display on top of the background image goes here -->
+        <h1>UK Institution we represent</h1> <br>
+  
+    </div>
+</div>
+
+<div class="container-fluid" style=" background-color: #E3F4F4;">
+    <div class="container" >
+        <div class="row p-5">
+          <div class="col">
+              <h3><strong>FIND YOUR INSTITUTION</strong></h3> 
+          </div>
+          <div class="mt-3 container">
+            <div class="row ">
+                <div class="col-8 d-flex flex-column justify-content-end">
+                  <div>
+                 
+                    <h5>Institution</h5>
+                    <a href="{% url 'uk_Institutions' %}" class="btn btn-primary">Show All</a>
+                    <a href="{% url 'filtered_university_list_institution' 'University' %}" class="btn btn-primary">University</a>
+                    <a href="{% url 'filtered_university_list_institution' 'School' %}" class="btn btn-primary">School</a>
+                    <a href="{% url 'filtered_university_list_institution' 'College' %}" class="btn btn-primary">College</a>
+                    
+                    <h5 class="mt-4">Student Type</h5>
+                    <a href="{% url 'filtered_university_list_accepted' 'Home' %}" class="btn btn-primary">Home</a>
+                    <a href="{% url 'filtered_university_list_accepted' 'Foreign' %}" class="btn btn-primary">Foreign</a>
+                    <a href="{% url 'filtered_university_list_accepted' 'Both' %}" class="btn btn-primary">Home/Freign</a>
+                  </div>
+                
+                </div>
+                
+                <div class="col-3 d-flex flex-column justify-content-end">
+                    <a href="#" class="btn p-2" style="background-color: #041562; color:white; border-radius:25px ;"><strong>Book Appointment</strong></a>
+                    <span class="text-center">100% Free Consultancy</span>
+                </div>
+            </div>
+          </div>
+    
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style=" background-color: #ECF2FF;">
+    <div class="container" >
+        <div class="row p-5">
+          <div class="col">
+            {% if institution_type %}
+            <h3><strong>All {{institution_type}}</strong></h3> 
+            {% elif Accepted %}
+            <h3><strong> Accept {{Accepted}} Student </strong></h3>
+            {% else %}
+              <h3><strong>All Institution</strong></h3> 
+            {% endif %}
+            
+          </div>
+          <div class="mt-3 container">
+            <div class="row">
+                {% for institution in universities %}
+                <div class="col-6 ">
+                    <div class="card mb-3" >
+                        <div class="row g-0 shadow">
+                          <div class="col-md-4 s">
+                            {% if institution.logo %}
+                            <img src="{{institution.logo.url}}" class="img-fluid img-thumbnail" alt="Logo" >
+                            {% else %}
+                            <p>Logo</p>
+                            {% endif %}
+                    
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title mb-4">{{institution.name}}</h5>
+                               <a href="{% url 'universrity_details' institution.id %}" class="btn btn-primary btn-sm">Details</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+    
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+

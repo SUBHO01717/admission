@@ -161,7 +161,7 @@ def DeleteProfile(request, pk):
         return redirect('userprofile')
     else:
         return render(request,"deletes/deleteprofile.html", {"data":data,}) 
-    
+
 @login_required(login_url="login")
 @role_required(allowed_roles=["Staff"])
 def CreateUniversity(request):
@@ -175,6 +175,22 @@ def CreateUniversity(request):
         uni_form = UniversityForm()
     return render(request,"create/create_university.html", {'uni_form': uni_form,}) 
 
+    
+@login_required(login_url="login")
+@role_required(allowed_roles=["Staff"])
+def EditUniversity(request,pk):
+    universrity=University.objects.get(pk=pk)
+    if request.method == 'POST':
+        uni_form = UniversityForm(request.POST,instance=universrity)
+        if uni_form.is_valid():
+            uni_form.save()
+            messages.success(request, 'Info updated successfully')
+            return redirect('userprofile')
+    else:
+        uni_form = UniversityForm(instance=universrity)
+    return render(request,"create/create_university.html", {'uni_form': uni_form,}) 
+
+
 @login_required(login_url="login")
 @role_required(allowed_roles=["Staff"])
 def CreateCampus(request):
@@ -187,6 +203,20 @@ def CreateCampus(request):
     else:
         campus_form = CampusForm()
     return render(request,"create/create_campus.html", {'campus_form': campus_form,}) 
+
+@login_required(login_url="login")
+@role_required(allowed_roles=["Staff"])
+def EditCampus(request,pk):
+    campus=Campus.objects.get(pk=pk)
+    if request.method == 'POST':
+        campus_form = CampusForm(request.POST,instance=campus)
+        if campus_form.is_valid():
+            campus_form.save()
+            messages.success(request, 'Info updated successfully')
+            return redirect('userprofile')
+    else:
+        campus_form = CampusForm(instance=campus)
+    return render(request,"create/create_campus.html", {'campus_form': campus_form,})
 
 @login_required(login_url="login")
 @role_required(allowed_roles=["Staff"])

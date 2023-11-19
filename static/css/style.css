@@ -84,8 +84,7 @@
 }
 
 @media (max-width: 390px) {
-  .container-fluid{
-    padding:1px;
+  .mobile-padding {
+    padding: 1rem !important; /* Adjust the padding as needed */
   }
- 
 }

@@ -19,7 +19,9 @@ urlpatterns = [
    path('studentedit/<int:pk>/', StudentEdit, name='studentedit'),
    
    path('create_university/', CreateUniversity, name='create_university'),
+   path('edit_university/<int:pk>/', EditUniversity, name='edit_university'),
    path('create_campus/', CreateCampus, name='create_campus'),
+   path('edit_campus/<int:pk>/', EditCampus, name='edit_campus'),
    path('course_create/', CreateCourse, name='course_create'),
    path('course_edit/<int:pk>/', CourseEdit, name='course_edit'),
    path('course_delete/<int:pk>/', DeleteCourse, name='course_delete'),

@@ -21,13 +21,58 @@ def StudyUK(request):
 def ApplicationProcess(request):
     return render(request, 'application_process.html')
 
+def ApplicationProcessLocal(request):
+    return render(request, 'application_process_local_UK.html')
+
 def WhyUs(request):
     return render(request, 'why_choose_admission_network.html')
+
+# def UKInstitutions(request ,institution_type=None, Accepted=None):
+    
+#     if institution_type:
+#         universities = University.objects.filter(type=institution_type)
+#     if Accepted:
+#         universities = University.objects.filter(accept_student=Accepted)
+#     else:
+#         universities = University.objects.filter(country='UK')
+    
+#     context={"universities":universities,'institution_type':institution_type, 'Accepted': Accepted}
+#     return render(request, 'UK_Institutions.html', context)
+
+
+def UKInstitutions(request, institution_type=None, Accepted=None):
+    universities = University.objects.filter(country='UK')
+    print(institution_type)
+
+    if institution_type:
+        universities = universities.filter(type=institution_type)
+
+    if Accepted:
+        # Filter based on the actual value from the choices
+        universities = universities.filter(accept_student=Accepted)
+
+    context = {
+        "universities": universities,
+        'institution_type': institution_type,
+        'Accepted': Accepted,
+    }
+
+    return render(request, 'UK_Institutions.html', context)
 
 def UkUniversities(request):
     univerities=University.objects.filter(Country='UK')
     context={"univerities":univerities,}
     return render(request, 'uk_universities.html', context)
+
+def UkUniversities(request):
+    univerities=University.objects.filter(Country='UK', type="University")
+    context={"univerities":univerities,}
+    return render(request, 'uk_universities.html', context)
+
+def UKColleges(request):
+    univerities=University.objects.filter(Country='UK', type="College")
+    context={"univerities":univerities,}
+    return render(request, 'uk_colleges.html', context)
 
 def StudyUsa(request):
     return render(request, 'why_in_usa.html')
@@ -36,7 +81,7 @@ def ApplicationProcessUSA(request):
     return render(request, 'application_process_usa.html')
 
 def USAUniversities(request):
-    univerities=University.objects.filter(Country='USA')
+    univerities=University.objects.filter(Country='USA', type="University")
     context={"univerities":univerities,}
     return render(request, 'usa_universities.html', context)
 
@@ -52,7 +97,7 @@ def DetailCourse(request,pk):
     context={'course':course,}
     return render(request, 'course_details.html', context)
 
-def send_booking_email(user_email, first_name):
+def send_contact_email(user_email, first_name):
     subject = "Admission Network - Registration Complete!"
     from_email = "allan01941@gmail.com"
     html_message = render_to_string('email/booking.html', {'first_name': first_name, 'email':user_email})
@@ -69,7 +114,7 @@ def ContactUs(request):
             messages.success(request, "We've received your message. One of our executives will contact you shortly.")
             
             # Corrected email_thread parameters
-            email_thread = threading.Thread(target=send_booking_email, args=(form.cleaned_data['email'], form.cleaned_data['first_name']))
+            email_thread = threading.Thread(target=send_contact_email, args=(form.cleaned_data['email'], form.cleaned_data['first_name']))
             email_thread.start()
             
             return redirect('index')

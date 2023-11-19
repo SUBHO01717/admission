@@ -43,8 +43,8 @@ def userSignup(request):
                 messages.success(request, 'User registered successfully.')
 
                 # Send email in a separate thread
-                #email_thread = threading.Thread(target=send_welcome_email, args=(user.email,user.email))
-                #email_thread.start()
+                email_thread = threading.Thread(target=send_welcome_email, args=(user.email,user.email))
+                email_thread.start()
 
                 return redirect('login')
             except Exception as e:

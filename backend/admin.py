@@ -8,5 +8,7 @@ admin.site.register(Course)
 admin.site.register(Intake)
 admin.site.register(Application)
 admin.site.register(AgentApplication)
-admin.site.register(BookApointment)
+
+admin.site.register(DegreeLevel)
+admin.site.register(EducationArea)
 
