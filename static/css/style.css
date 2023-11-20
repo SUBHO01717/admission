@@ -43,24 +43,6 @@
 
 
 
-.background-image {
-  position: relative;
-  background-color: #363062;
-  background-size: cover;
-  background-position: center center;
-  height: 300px;
-  color: #fff; /* Set the text color to contrast with the background image */
-  text-align: center;
-  padding: 0px;
-  z-index: 1; /* Ensure the content is above the overlay */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-
 .link-style {
   text-decoration: none;
   color: white;
@@ -71,6 +53,22 @@
 }
 
 
+.background-image {
+  position: relative;
+  background-color: #363062;
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+  color: #fff; /* Set the text color to contrast with the background image */
+  text-align: center;
+  padding: 0;
+  z-index: 1; /* Ensure the content is above the overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
 .background-image::before {
   content: "";
@@ -83,8 +81,9 @@
   z-index: -1;
 }
 
-@media (max-width: 390px) {
-  .mobile-padding {
-    padding: 1rem !important; /* Adjust the padding as needed */
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .background-image {
+      height: 200px; /* Adjust the height for smaller screens */
   }
 }

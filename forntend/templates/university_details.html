@@ -8,76 +8,76 @@
 </div>
 <section style="background-color: #eee;">
 
-    <div class="container-fluid" style="background-color:white;" >
-        <div class="container">
-            <div class="row" >
-                <div class="col-4 p-5 ">
-                    <h3>{{university.name}}</h3>
-                    {% if university.image %}
-                    <img src="{{university.image.url}}" alt="image" class="img-fluid shadow my-3">
-                    {% else %}
-                    {% endif %}
-                    <h3>Intakes</h3>
-                    {% for intake in university.intakes.all %}
-                    <button class="btn btn-primary m-2"><strong>{{ intake.name }}</strong> - {{intake.start_from}} to {{intake.end_at}}  </button>
-                    {% endfor %}
-
-                    
-                </div>
-                <div class="col-8 p-5">
-                    <h3>About</h3>
-                    <p>{{university.deatils|safe}}</p>
-                </div>
-            </div>
+  <div class="container-fluid" style="background-color:white;">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 p-3">
+                  <h3>{{university.name}}</h3>
+                  {% if university.image %}
+                  <img src="{{university.image.url}}" alt="image" class="img-fluid shadow my-3">
+                  {% else %}
+                  {% endif %}
+                  <h3>Intakes</h3>
+                  {% for intake in university.intakes.all %}
+                  <button class="btn btn-primary m-2"><strong>{{ intake.name }}</strong> - {{intake.start_from}} to {{intake.end_at}}  </button>
+                  {% endfor %}
+              </div>
+              <div class="col-md-8 p-3">
+                  <h3>About</h3>
+                  <p>{{university.deatils|safe}}</p>
+              </div>
           </div>
-    </div>
-    <div class="container-fluid" style="background-color:#ECF9FF;">
-        <div class="container p-5">
-            <h3 class="py-3">Available Campus</h3>
-            <div class="row">
-                {% for campus in university.campus_set.all %}
-                <div class="col-sm-4">
-                  <div class="card card2" style="border-radius:15px;">
-                    <div class="card-body text-black">
-                        <h5 class="card-title">{{campus.name}}</h5>
-                        <h5 ><u>Address</u></h5>
-                        <span class="card-text">{{campus.stree}}, {{campus.city}}</span>
-                        <span class="card-text">{{campus.state}}, {{campus.zip_code}}</span>
-                        <span class="card-text">{{campus.country}}</span>
-                    </div>
+        </div>
+  </div>
+
+  <div class="container-fluid" style="background-color:#ECF9FF;">
+      <div class="container p-3">
+          <h3 class="py-2">Available Campus</h3>
+          <div class="row">
+              {% for campus in university.campus_set.all %}
+              <div class="col-md-4 mb-3">
+                <div class="card card2" style="border-radius:15px;">
+                  <div class="card-body text-black">
+                      <h5 class="card-title">{{campus.name}}</h5>
+                      <h5><u>Address</u></h5>
+                      <span class="card-text">{{campus.stree}}, {{campus.city}}</span>
+                      <span class="card-text">{{campus.state}}, {{campus.zip_code}}</span>
+                      <span class="card-text">{{campus.country}}</span>
                   </div>
                 </div>
-                {% endfor %}
-                
               </div>
-        </div>
-    </div>
-    <div class="container-fluid" style="background-color:#FFFFFF;">
-        <div class="container p-5">
-            <h3 class="py-3">Course Offered</h3>
-            <div class="row">
-                {% for course  in university.course_set.all %}
-                <div class="col-sm-4" >
-                  <div class="card card2" style="border-radius:15px; background-color:#EAF6F6;">
-                    <div class="card-body">
-                      <h5 class="card-title"><strong>{{course.name}}</strong></h5>
-                      <span class="card-text">{{course.degree_level}} | {{course.duration}} </span><br>
-                      <span class="card-text">International Student -  &#163;{{course.fees}}</span><br>
-                      <span class="card-text">Home Student -  &#163;{{course.Local_fees}}</span> <br>
-                      <a href="{% url 'course_details' course.pk %}" class="btn btn-primary btn-sm m-1">Details</a>
-                      {% if user.userprofile.userrole == "Student" %}
-                      <a href="{% url 'student_application_create' course.university.pk course.pk  %}" class="btn btn-primary btn-sm m-1">Apply</a>
-                      {% else %}
-                      <a href="{% url 'agent_application_create' course.university.pk course.pk  %}" class="btn btn-primary btn-sm m-1">Apply</a>
-                      {% endif %}
-                    </div>
+              {% endfor %}
+            </div>
+      </div>
+  </div>
+
+  <div class="container-fluid" style="background-color:#FFFFFF;">
+      <div class="container p-3">
+          <h3 class="py-2">Course Offered</h3>
+          <div class="row">
+              {% for course  in university.course_set.all %}
+              <div class="col-md-4 mb-3">
+                <div class="card card2" style="border-radius:15px; background-color:#EAF6F6;">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>{{course.name}}</strong></h5>
+                    <span class="card-text">{{course.degree_level}} | {{course.duration}} </span><br>
+                    <span class="card-text">International Student -  &#163;{{course.fees}}</span><br>
+                    <span class="card-text">Home Student -  &#163;{{course.Local_fees}}</span> <br>
+                    <a href="{% url 'course_details' course.pk %}" class="btn btn-primary btn-sm m-1">Details</a>
+                    {% if user.userprofile.userrole == "Student" %}
+                    <a href="{% url 'student_application_create' course.university.pk course.pk  %}" class="btn btn-primary btn-sm m-1">Apply</a>
+                    {% else %}
+                    <a href="{% url 'agent_application_create' course.university.pk course.pk  %}" class="btn btn-primary btn-sm m-1">Apply</a>
+                    {% endif %}
                   </div>
                 </div>
-                {% endfor %}
-                
               </div>
-        </div>
-    </div>
+              {% endfor %}
+            </div>
+      </div>
+  </div>
+
 </section>
+
 
 {% endblock content %}
