@@ -1,4 +1,4 @@
-<div class="col mx-3 bg-white shadow py-3" style="border-radius:5px;">
+<div class="col mx-auto mx-lg-3 py-3 bg-white shadow py-3" style="border-radius:5px;">
 
     <div class="row d-flex justify-content-center">
  
@@ -57,7 +57,7 @@
             {% endfor %}
             
             {% if user.userprofile.userrole == 'Partner' %}
-             <span><strong>You Are Representing University in:</strong></span>
+             <span><strong>You Are Representing Universities in:</strong></span>
               {% if user.userprofile.represented_universities.all %}
                 {% for university in user.userprofile.represented_universities.all %}
                   {{ university.Country }}{% if not forloop.last %}, {% endif %}
@@ -127,7 +127,7 @@
               
               <tbody>
                 {% if user.userprofile.userrole == 'Partner' %}
-                <span><strong>Applications submitted by Recuritment Partner For  :</strong></span> <br> <br>
+                <span><strong>Recuritment Partner Applications for Universities You Represent:</strong></span> <br> <br>
                 
                    {% for university in user.userprofile.represented_universities.all %}
                    <h4>{{ university.name }}</h4> <br>
@@ -172,7 +172,7 @@
             <table class="table table-responsive table-hover" style="font-size:14px !important;">
               <tbody>
                 {% if user.userprofile.userrole == 'Partner' %}
-                <span><strong>Student Applications Directly For :</strong></span> <br> <br>
+                <span><strong>Student Applications for Universities You Represent:</strong></span> <br> <br>
                 
                    {% for university in user.userprofile.represented_universities.all %}
                    <h4>{{ university.name }}</h4> <br>

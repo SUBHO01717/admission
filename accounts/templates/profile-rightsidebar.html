@@ -1,92 +1,86 @@
-<div class="col mx-2 bg-white shadow py-3" style="border-radius:5px;">
+<div class="col mx-auto mx-lg-3 py-3 bg-white shadow py-3" style="border-radius:5px;">
 
-  <div class="row ">
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #071952;">
-        <div class="card-body text-white">
-          <h5 class="card-title"># Agent</h5>
-          <hr>
-          <h5 class="card-text">{{agent.count}}</h5>
+    <div class="row">
+ 
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #071952;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Agent</h5>
+            <hr>
+            <h5 class="card-text">{{agent.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Repeat the same structure for other cards -->
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #088395;">
-        <div class="card-body text-white">
-          <h5 class="card-title"># University</h5>
-          <hr>
-          <h5 class="card-text">{{university.count}}</h5>
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow " style="background-color: #088395;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># University</h5>
+            <hr>
+            <h5 class="card-text">{{university.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #363062;">
-        <div class="card-body text-white">
-          <h5 class="card-title"># Courses </h5>
-          <hr>
-          <h5 class="card-text">{{course.count}}</h5>
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #363062;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Courses </h5>
+            <hr>
+            <h5 class="card-text">{{course.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-
-  
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #0B666A;">
-        <div class="card-body text-white">
-          <h5 class="card-title"># Student </h5>
-          <hr>
-          <h5 class="card-text">{{student.count}}</h5>
+      <div class="col-sm-6 col-md-3 mt-2 ">
+        <div class="card text-center shadow" style="background-color: #435585;">
+          <div class="card-body text-white">
+            <h5 class="card-title"># Student </h5>
+            <hr>
+            <h5 class="card-text">{{student.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-
-
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #0B666A;">
-        <div class="card-body text-white">
-          <h5 class="card-title">Student Application  </h5>
-          <hr>
-          <h5 class="card-text">{{application.count}}</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #512B81;">
-        <div class="card-body text-white">
-          <h5 class="card-title">Agent Application </h5>
-          <hr>
-          <h5 class="card-text">{{agentapplication.count}}</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #E7B10A;">
-        <div class="card-body text-white">
-          <h5 class="card-title">Agent Application Status</h5>
-          <hr>
-          {% for item in status_counts %}
-          <span class="card-text">{{ item.application_status }}-{{ item.status_count}}  {% if not forloop.last %} | {% endif %}</span>
-          {% endfor %}
       
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #0B666A;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Student Application </h5>
+            <hr>
+            <h5 class="card-text">{{application.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 col-lg-4 mt-2">
-      <div class="card text-center shadow" style="background-color: #CD1818;">
-        <div class="card-body text-white">
-          <h5 class="card-title">Student Application Status</h5>
-          <hr>
-          {% for item in status_counts_student %}
-          <span class="card-text">{{ item.application_status }}-{{ item.status_count }} {% if not forloop.last %} | {% endif %}</span>
-          
-          {% endfor %}
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #512B81;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Agent Application </h5>
+            <hr>
+            <h5 class="card-text">{{agentapplication.count}}</h5>
+          </div>
         </div>
       </div>
-    </div>
-
-    
-
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #E7B10A;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Agent Application Status</h5>
+            <hr>
+            {% for item in status_counts %}
+            <span class="card-text">{{ item.application_status }}-{{ item.status_count}}  {% if not forloop.last %} | {% endif %}</span>
+            {% endfor %}
+        
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3 mt-2">
+        <div class="card text-center shadow" style="background-color: #CD1818;">
+          <div class="card-body text-white">
+            <h5 class="card-title">Student Application Status</h5>
+            <hr>
+            {% for item in status_counts_student %}
+            <span class="card-text">{{ item.application_status }}-{{ item.status_count }} {% if not forloop.last %} | {% endif %}</span>
+            
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     <br>
     <br>
 
@@ -380,9 +374,8 @@
 
                   <td>
                     <a href="{% url 'university' university.pk %}" class="btn btn-success btn-sm">View Details</a>
-                    <a href="{% url 'edit_university' university.pk %}" class="btn btn-warning btn-sm">Edit Details</a>
+                    <a href="{% url 'edit_university' university.pk %}" class="btn btn-success btn-sm">Edit Info</a>
                   </td>
-                
               
        
                 </tr>

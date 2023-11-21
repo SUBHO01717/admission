@@ -166,7 +166,7 @@ def DeleteProfile(request, pk):
 @role_required(allowed_roles=["Staff"])
 def CreateUniversity(request):
     if request.method == 'POST':
-        uni_form = UniversityForm(request.POST,)
+        uni_form = UniversityForm(request.POST,request.FILES)
         if uni_form.is_valid():
             uni_form.save()
             messages.success(request, 'Course Data is updated successfully')
@@ -181,7 +181,7 @@ def CreateUniversity(request):
 def EditUniversity(request,pk):
     universrity=University.objects.get(pk=pk)
     if request.method == 'POST':
-        uni_form = UniversityForm(request.POST,instance=universrity)
+        uni_form = UniversityForm(request.POST,request.FILES,instance=universrity)
         if uni_form.is_valid():
             uni_form.save()
             messages.success(request, 'Info updated successfully')
@@ -195,7 +195,7 @@ def EditUniversity(request,pk):
 @role_required(allowed_roles=["Staff"])
 def CreateCampus(request):
     if request.method == 'POST':
-        campus_form = CampusForm(request.POST,)
+        campus_form = CampusForm(request.POST,request.FILES)
         if campus_form.is_valid():
             campus_form.save()
             messages.success(request, 'Course Data is updated successfully')
@@ -209,7 +209,7 @@ def CreateCampus(request):
 def EditCampus(request,pk):
     campus=Campus.objects.get(pk=pk)
     if request.method == 'POST':
-        campus_form = CampusForm(request.POST,instance=campus)
+        campus_form = CampusForm(request.POST,request.FILES, instance=campus)
         if campus_form.is_valid():
             campus_form.save()
             messages.success(request, 'Info updated successfully')
@@ -270,7 +270,7 @@ def StudentApplicationCreate(request,university_id,course_id):
     course=Course.objects.get(pk=course_id)
     
     if request.method == 'POST':
-        Student_application_form = StudentAppForm2(request.POST)
+        Student_application_form = StudentAppForm2(request.POST, request.FILES)
         if Student_application_form.is_valid():
             Student_application_form.instance.applicant = request.user 
             Student_application_form.save()
@@ -288,7 +288,7 @@ def StudentApplicationCreate(request,university_id,course_id):
 def StudentApplicationCreateBlank(request,):
        
     if request.method == 'POST':
-        Student_application_form = StudentAppForm2(request.POST)
+        Student_application_form = StudentAppForm2(request.POST ,request.FILES)
         if Student_application_form.is_valid():
             Student_application_form.instance.applicant = request.user 
             Student_application_form.save()
@@ -304,7 +304,7 @@ def StudentApplicationCreateBlank(request,):
 def StudentAppEdit(request,pk):
     application=Application.objects.get(pk=pk)
     if request.method == 'POST':
-        Student_application_form = StudentAppForm(request.POST, instance=application)
+        Student_application_form = StudentAppForm(request.POST,request.FILES, instance=application)
         if Student_application_form.is_valid():
             Student_application_form.save()
             messages.success(request, 'Applciation updated successfully')
@@ -330,7 +330,7 @@ def AgentAppCreate(request,university_id,course_id):
     university=University.objects.get(pk=university_id)
     course=Course.objects.get(pk=course_id)
     if request.method == 'POST':
-        agent_application_form = AgentAppForm2(request.POST)
+        agent_application_form = AgentAppForm2(request.POST, request.FILES)
         if agent_application_form.is_valid():
             agent_application_form.instance.applicant = request.user 
             agent_application_form.save()
@@ -346,7 +346,7 @@ def AgentAppCreate(request,university_id,course_id):
 @role_required(allowed_roles=["Staff", "Agent"])
 def AgentAppCreateBlank(request,):
     if request.method == 'POST':
-        agent_application_form = AgentAppForm2(request.POST)
+        agent_application_form = AgentAppForm2(request.POST ,request.FILES)
         if agent_application_form.is_valid():
             agent_application_form.instance.applicant = request.user 
             agent_application_form.save()
@@ -369,7 +369,7 @@ def AgentAppDetails(request,pk):
 def AgentAppEdit(request,pk):
     application=AgentApplication.objects.get(pk=pk)
     if request.method == 'POST':
-        agent_application_form = AgentAppForm(request.POST, instance=application)
+        agent_application_form = AgentAppForm(request.POST, request.FILES, instance=application)
         if agent_application_form.is_valid():
             agent_application_form.save()
             messages.success(request, 'Applciation updated successfully')

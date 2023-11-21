@@ -58,8 +58,8 @@ class EducationArea(models.Model):
 class Course(models.Model):
     university = models.ForeignKey(University, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    area_education = models.OneToOneField(EducationArea, on_delete=models.SET_NULL, null=True, blank=True)
-    degree_level = models.OneToOneField(DegreeLevel, on_delete=models.SET_NULL, null=True, blank=True)
+    area_education = models.ForeignKey(EducationArea, on_delete=models.SET_NULL, null=True, blank=True)
+    degree_level = models.ForeignKey(DegreeLevel,on_delete=models.SET_NULL, null=True, blank=True)
     duration = models.CharField(max_length=100)  # Duration in months
     fees = models.DecimalField(max_digits=10, decimal_places=2)
     Local_fees = models.DecimalField(max_digits=10, decimal_places=2, null= True, blank=True)

@@ -3,28 +3,20 @@
 {% block content %}
 
 <section style="background-color: #eee;">
-  <div class="container">
-    <div class="row m-2 py-3">
+  <div class="row m-2 py-3">
+  
+   {% include "profile-sidebar.html" %}
+   {% if user.userprofile.userrole == "Agent" %}
+   {% include "agent_profile-rightsidebar.html" %}
+   {% elif user.userprofile.userrole == "Student" %}
+   {% include "student_profile-rightsidebar.html" %}
+   {% elif user.userprofile.userrole == "Partner" %}
+   {% include "partner_profile-rightsidebar.html" %}
+   {% else %}
+   {% include "profile-rightsidebar.html" %}
+   {% endif%}
 
-      <div class="col-lg-2 col-md-3 col-12 my-2">
-        {% include "profile-sidebar.html" %}
-      </div>
-
-      <div class="col-lg-10 col-md-9 col-12">
-        {% if user.userprofile.userrole == "Agent" %}
-          {% include "agent_profile-rightsidebar.html" %}
-        {% elif user.userprofile.userrole == "Student" %}
-          {% include "student_profile-rightsidebar.html" %}
-        {% elif user.userprofile.userrole == "Partner" %}
-          {% include "partner_profile-rightsidebar.html" %}
-        {% else %}
-          {% include "profile-rightsidebar.html" %}
-        {% endif%}
-      </div>
-
-    </div>
   </div>
 </section>
-
 
 {% endblock content %}
