@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="row" style="background: url('{% static "images/partner-banner.jpg" %}') center/cover no-repeat;">
+      <!-- First Column (Image Background) -->
+      <div class="col-md-6 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 80vh;">
+          <div>
+              <h1 class="py-3">Increase Your Global Presence and Diversify Your Campus</h1>
+              <p class="text-uppercase py-3 fs-5">Admission Network recruits qualified international students from most of the countries of the world..</p>
+          </div>
+          <div>
+              <a href="{% url 'signup' %}" class="btn btn-light btn-lg  ">PARTNER WITH US <i class="bi bi-arrow-right-circle"></i></a>
+          </div>
+      </div>
+
+      <!-- Second Column (Content) -->
+      <div class="col-md-6 order-md-2"></div>
+  </div>
+
+  <div class="p-5 text-center">
+      <h1 class="text-center pb-2" style="color:#0064E1;"><strong>Expand Your International Reach</strong></h1>
+      <h4 class="text-center mt-2"><strong>Attract the best students from around the world with Admission Network.</strong></h4>
+  </div>
+
+  <div class="container py-3" style="Background-color: #FFFFFF;">
+      <div class="row pb-5 g-3">
+          <!-- Cards Section -->
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Student_Diversity_uirv.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>High School</strong></h5>
+                <p class="card-text ">High school typically includes grade 9-12 and allows students to develop skills to pursue higher education.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Quality_Applications_uirv.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Undergraduate</strong></h5>
+                <p class="card-text ">Undergraduate programs are taught at colleges and universities. Students receive a diploma, an advanced diploma, or a bachelor’s degree.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Managed_Recruiter_Network_uirv.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Post-Graduate</strong></h5>
+                <p class="card-text ">A post-graduate program follows an undergraduate degree and takes 1-2 years. Students receive a graduate certificate, graduate diploma, or master’s degree.</p>
+              
+              </div>
+            </div>
+          </div>
+         
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Document_Verification_uirv.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Document Verification</strong></h5>
+                <p class="card-text ">In-house verification of key documents, including IELTS.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Flexible_Platform_uirv.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Applicant Matching</strong></h5>
+                <p class="card-text ">Our platform ensures only eligible students apply to your programs.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Perks.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Promotional Channels</strong></h5>
+                <p class="card-text ">Showcase your school on our platform, at events, and across social media.</p>
+              
+              </div>
+            </div>
+          </div>
+      
+      </div>
+
+      <!-- How It Works Section -->
+  </div>
+</div>
+
+<div class="continer-fluid p-0" style="Background-color: #EEF5FF;">
+    <div class="row p-5 align-item-center justify-content-center " >
+        <div class="col-md-6 col-sm-12 p-5  ">
+            <div>
+                <h1 style="color:#0064E1;"><strong>Trusted By Leading Institutions</strong></h1>
+            </div>
+            <div class="py-5">
+                <p class="fs-5">Join 1,200+ leading educational institutions who are already recruiting globally with Admission Network.
+                </p>
+            </div>
+            <a href="{% url "uk_Institutions" %}" class=" btn btn-primary btn-lg " >Explore School, Colleges & Universities <i class="bi bi-arrow-right-circle"></i></a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <img src="{% static 'images/Recruiter-How-weworks.jpg' %}" class="img-fluid" alt="">
+        </div>
+       
+    </div>
+</div>
+
+<div class="continer-fluid p-0" >
+    <div class="row p-5 align-item-center justify-content-center " >
+        <h1 class="text-center pt-5" style="color:#0064E1;"><strong>The Benefits of Partnering with Admission Network</strong></h1>
+            <p  class="text-center fs-4 pb-5">Admission Network makes recruiting international students easier.</p>
+      
+        <div class="col-md-6 col-sm-12">
+            <img src="{% static 'images/SCHOOL-SPEND-LESS-TIME.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-6 col-sm-12 p-5  ">
+            <div>
+                <h1 style="color:#0064E1;"><strong>Spend Less Time Vetting Applications</strong></h1>
+            </div>
+            <div class="pt-5">
+                <p class="fs-5">The Admission Network Team reviews applications to ensure they are complete, and all required documents are included. This saves you time, while ensuring applications meet your admission requirements.
+                </p>
+            </div>
+            <a href="{% url "signup" %}" class=" btn btn-primary btn-lg " >Work With Us <i class="bi bi-arrow-right-circle"></i></a>
+        </div>
+       
+    </div>
+</div>
+
+<div class="continer-fluid p-0"  style="Background-color: #EEF5FF;">
+    <div class="row p-5 align-item-center justify-content-center " >
+   
+      
+     
+        <div class="col-md-6 col-sm-12 p-5" >
+            <div>
+                <h1 style="color:#0064E1;"><strong>Increase Your Campus Diversity</strong></h1>
+            </div>
+            <div class="pt-5">
+                <p class="fs-5">Expand your international reach to students in 110+ countries, bringing new cultures and greater diversity to your campuses.
+
+                </p>
+            </div>
+            <a href="{% url "signup" %}" class=" btn btn-primary btn-lg " >Work With Us <i class="bi bi-arrow-right-circle"></i></a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <img src="{% static 'images/SCHOOL-CAMPUR-DIVERSITY.jpg' %}" class="img-fluid" alt="">
+        </div>
+       
+    </div>
+</div>
+
+
+<div class="container-fluid p-0 text-center" style="background-color: #08A2FF;">
+  <div class="py-5 text-white">
+      <h1 class="text-center"><strong>WORK WITH ADMISSION NETWORK</strong></h1>
+      <p class="fs-2 text-center">Partnership Request
+      </p>
+      <a href="{% url "signup" %}" class="rounded-button ">Institutional Partner  <i class="bi bi-arrow-right-circle"></i></a>
+      <a href="{% url "terms_conditions" %}" class="rounded-button ">Terms & Conditions <i class="bi bi-arrow-right-circle"></i></a>
+  </div>
+
+
+
+</div>
+
+{% endblock content %}

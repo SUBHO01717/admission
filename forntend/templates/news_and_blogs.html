@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="row" style="background: url('{% static "images/blog.jpg" %}') center/cover no-repeat;">
+      <!-- First Column (Image Background) -->
+      <div class="col-md-12 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 80vh;">
+          <div class="text-center">
+              <h1 class="py-3 ">NEWS AND BLOGS </h1>
+              <p class="text-uppercase py-3 fs-5" >As the Admission Process are charging quite frequenlty. FInd the lastest news and accurate news at Admission Network</p>
+          </div>
+      </div>
+  </div>
+
+
+
+{% endblock content %}

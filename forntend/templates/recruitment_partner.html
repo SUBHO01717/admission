@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="row" style="background: url('{% static "images/partner-banner.jpg" %}') center/cover no-repeat;">
+      <!-- First Column (Image Background) -->
+      <div class="col-md-6 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 80vh;">
+          <div>
+              <h1 class="py-3">Help Your Students Study Abroad</h1>
+              <p class="text-uppercase py-3 fs-5">Give your students more options globally with access to WORLD WIDE, Colleges and Universities. Simplify the application, acceptance, and arrival process through a single online platform.</p>
+          </div>
+          <div>
+              <a href="{% url 'signup' %}" class="btn btn-light btn-lg  ">WORK WITH US <i class="bi bi-arrow-right-circle"></i></a>
+          </div>
+      </div>
+
+      <!-- Second Column (Content) -->
+      <div class="col-md-6 order-md-2"></div>
+  </div>
+
+  <div class="p-5">
+      <h1 class="text-center" style="color:#0064E1;"><strong>Our Benefits</strong></h1>
+  </div>
+
+  <div class="container py-3" style="Background-color: #FFFFFF;">
+      <div class="row pb-5 g-3">
+          <!-- Cards Section -->
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Access.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Access world wide Schools, Colleges and Universities</strong></h5>
+                <p class="card-text ">Featuring over 30,000 programs across all areas of study.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Programs.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Find Programs Faster</strong></h5>
+                <p class="card-text ">Discover and apply your students to their programs of choice.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Application.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Easy Application</strong></h5>
+                <p class="card-text ">Create one profile per student and apply to as many Schools, Colleges and Universities, Colleges and Universities as they like.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Customer_Experience.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>A+ Customer Experience</strong></h5>
+                <p class="card-text ">A dedicated team that supports you and your students’ journey from application to arrival.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Platform.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>A Central Platform</strong></h5>
+                <p class="card-text ">Manage your students, their applications, and communications in one place.</p>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4 h-100 card2" >
+                <img src="{% static "images/Benefits_Perks.png" %}" class="card-img-top1 ">
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>Perks And Rewards</strong></h5>
+                <p class="card-text ">Earn generous commissions, bonuses, and discounts to support your growth.</p>
+              
+              </div>
+            </div>
+          </div>
+      
+      </div>
+
+      <!-- How It Works Section -->
+  </div>
+</div>
+
+<div class="continer-fluid p-0" style="Background-color: #EEF5FF;">
+    <div class="row p-5 " >
+        <div class="col-md-6 col-sm-12">
+            <img src="{% static 'images/Recruiter-How-weworks.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-6 col-sm-12  ">
+            <div>
+                <h1 style="color:#0064E1;"><strong>How Admission Network Works</strong></h1>
+            </div>
+            <div class="py-5">
+         
+              <p class="fs-5">Our artificial intelligence (AI) powered platform helps you find Schools, Colleges and Universities that meet your students' interests, apply to multiple programs that match their qualifications, and earn competitive commissions.</p>
+            </div>
+   
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-0" style="background-color: #08A2FF;">
+  <div class="py-5 text-white">
+      <h1 class="text-center"><strong>GET STARTED WITH ADMISSION NETWORK</strong></h1>
+  </div>
+  <div class="d-grid gap-2 d-md-block p-5 text-center">
+    <a href="{% url "signup" %}" class=" rounded-button " >Student  <i class="bi bi-arrow-right-circle"></i></a>
+    <a href="{% url "signup" %}" class="rounded-button ">Institutional Partner  <i class="bi bi-arrow-right-circle"></i></a>
+    <a href="{% url "signup" %}" class="rounded-button ">Recruitment Partner  <i class="bi bi-arrow-right-circle"></i></a>
+  </div>
+
+
+</div>
+
+{% endblock content %}

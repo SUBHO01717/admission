@@ -1,37 +1,12 @@
 
   /* Customize additional styles here */
-  .carousel-item {
-    height: auto; /* Adjust the height as needed */
-  }
-  .carousel-inner {
-    overflow: hidden;
-  }
-  .carousel-caption {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-  }
+.carousel-caption {
+    background-color: rgba(1, 1, 1, 0.266); /* 0.7 is the transparency value, adjust as needed */
+    padding: 20px; /* Adjust the padding as needed */
+    color: white; /* Set text color to white or another suitable color for visibility */
+}
 
-  .drk:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: black;
-    opacity: 0.6;
-    z-index: 1;
-  }
-
-  .carousel-caption {
-    z-index: 2;
-  }
-
-
-.card2 {
+.card2 {  
     transition: transform 0.5s;
 }
 
@@ -45,13 +20,12 @@
 
 .link-style {
   text-decoration: none;
-  color: white;
+  color: rgb(30, 30, 30);
 }
 
 .link-style:hover {
   color: #d6c9a6;
 }
-
 
 .background-image {
   position: relative;
@@ -81,10 +55,41 @@
   z-index: -1;
 }
 
+.card-img-top1 {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.rounded-button {
+  display: inline-block;
+  padding: 10px 30px; /* Adjust padding as needed */
+  border-radius: 25px; /* Set border-radius to create rounded corners */
+  text-decoration: none; /* Remove underlines if used in an anchor tag */
+  background-color: #ffffff; /* Set background color */
+  color: #0a0a0a; /* Set text color */
+  font-size: 20px; /* Set font size */
+  border: none; /* Remove border */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  margin: 0px   10px;
+  transition: background-color 0.5s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-button:hover {
+  background-color: rgb(0, 0, 0); /* Change background color on hover */
+  color: #ffffff;
+ 
+}
+
 /* Media query for mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .background-image {
       height: 200px; /* Adjust the height for smaller screens */
   }
+  .rounded-button{
+    font-size: 15px;
+  }
+
   
 }

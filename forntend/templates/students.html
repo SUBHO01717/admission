@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="row" style="background: url('{% static "images/student-banner.jpg" %}') center/cover no-repeat;">
+      <!-- First Column (Image Background) -->
+      <div class="col-md-6 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 80vh;">
+          <div>
+              <h1 class="py-3">Apply to Study Abroad at Your Dream School</h1>
+              <p class="text-uppercase py-3 fs-5" >Learn about programs and Schools, Colleges and Universities, get matched to the best options for you, easily submit your application, and get the support you need along the way!</p>
+          </div>
+          <div>
+              <a href="{% url 'signup' %}" class="btn btn-light btn-lg"> GET STARTED <i class="bi bi-arrow-right-circle"></i></a>
+          </div>
+      </div>
+
+      <!-- Second Column (Content) -->
+      <div class="col-md-6 order-md-2"></div>
+  </div>
+
+  <div class="p-5">
+      <h1 class="text-center" style="color:#0064E1;"><strong>Study with Admission Network</strong></h1>
+  </div>
+
+  <div class="container py-3">
+      <div class="row pb-5 g-2">
+          <!-- Cards Section -->
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4" >
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>SCHOOLS</strong></h5>
+                <p class="card-text ">High school typically includes grade 9-12 and allows students to develop skills to pursue higher education.</p>
+                <a href="{% url 'uk_Institutions' %}" class="btn btn-primary" >Explore Schools</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 "> 
+            <div class="card shadow text-center py-4" >
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>COLLEGES</strong></h5>
+                <p class="card-text " >High school typically includes grade 9-12 and allows students to develop skills to pursue higher education.</p>
+                <a href="{% url 'uk_Institutions' %}" class="btn btn-primary ">Explore Colleges</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card shadow text-center py-4" >
+       
+              <div class="card-body">
+                <h5 class="card-title " style="color:#0064E1;"><strong>UNIVERSITIES</strong></h5>
+                <p class="card-text ">High school typically includes grade 9-12 and allows students to develop skills to pursue higher education.</p>
+                <a href="{% url 'uk_Institutions' %}" class="btn btn-primary ">Explore Universities</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="row py-5">
+          <div class="col-md-6">
+              <img src="{% static 'images/Student-HOW-IT-WORKS.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-6">
+              <div>
+                  <h1 style="color:#0064E1;"><strong>HOW IT WORKS</strong></h1>
+              </div>
+              <div class="py-5">
+                <h3><strong>STEP 1</strong></h3>
+                <span style="color:#0064E1;"><h2>Find the Right Program and School</h2></span>
+                <p class="fs-5">Complete a short survey and get matched to programs and Schools, Colleges and Universities that meet your unique background and interests.</p>
+              </div>
+              <div class="py-5">
+                <h3><strong>STEP 2</strong></h3>
+                <span style="color:#0064E1;"><h2>Submit Your Application</h2></span>
+                <p class="fs-5">Select your program and school, complete your online profile, pay the application fee, and submit the required documents. Admission Network will review your application and ensure you’re not missing any information.</p>
+              </div>
+              <div class="py-5">
+                <h3><strong>STEP 3</strong></h3>
+                <span style="color:#0064E1;"><h2>Get Your Letter of Acceptance</h2></span>
+                <p class="fs-5">Your application is submitted and reviewed by the school. If accepted, you will quickly receive your acceptance letter.</p>
+              </div>
+              <div class="py-5">
+                <h3><strong>STEP 4</strong></h3>
+                <span style="color:#0064E1;"><h2>Start the Visa Process</h2></span>
+                <p class="fs-5">Admission Network’s team of experts provide you with guidance and support during the visa application process and beyond, to give you the best chance of success.</p>
+              </div>
+              <div class="py-5">
+                <h3><strong>STEP 5</strong></h3>
+                <span style="color:#0064E1;"><h2>Book Your Plane Ticket and Go!</h2></span>
+                <p class="fs-5">Once you’ve got your acceptance and visa, book your plane ticket and begin your educational journey abroad! Don’t forget to arrange your accommodations.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0" style="background-color: #08A2FF;">
+  <div class="py-5 text-white">
+      <h1 class="text-center"><strong>GET STARTED WITH ADMISSION NETWORK</strong></h1>
+  </div>
+  <div class="d-grid gap-2 d-md-block p-5 text-center">
+    <a href="{% url "signup" %}" class=" rounded-button " >Student  <i class="bi bi-arrow-right-circle"></i></a>
+    <a href="{% url "signup" %}" class="rounded-button ">Institutional Partner  <i class="bi bi-arrow-right-circle"></i></a>
+    <a href="{% url "signup" %}" class="rounded-button ">Recruitment Partner  <i class="bi bi-arrow-right-circle"></i></a>
+  </div>
+
+
+</div>
+
+{% endblock content %}

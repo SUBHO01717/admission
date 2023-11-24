@@ -15,6 +15,19 @@ def Home(request):
 def AboutUs(request):
     return render(request, 'about_us.html')
 
+def Student(request):
+    return render(request, 'students.html')
+def Recruiter(request):
+    return render(request, 'recruitment_partner.html')
+def Partner(request):
+    return render(request, 'institutional_partner.html')
+def TermsConditions(request):
+    return render(request, 'terms_conditions.html')
+def NewsBlogs(request):
+    return render(request, 'news_and_blogs.html')
+def Events(request):
+    return render(request, 'events.html')
+
 def StudyUK(request):
     return render(request, 'why_in_uk.html')
 
