@@ -5,3 +5,4 @@ from . models import *
 admin.site.register(UserMessage)
 admin.site.register(Events)
 admin.site.register(BlogNews)
+admin.site.register(GlobalOffice)

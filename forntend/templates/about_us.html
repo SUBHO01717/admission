@@ -3,14 +3,33 @@
 {% block content %}
 
 
-<div class="container-fluid p-0" style="background-color:#FFF;">
-  <div class="row p-5">
+<div class="conatiner-fluid p-0">
 
-    <div class="col-md-6 col-sm-12 text-center ">
-      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+  <div class="row" style="background: url('{% static "images/events.jpg" %}') center/cover no-repeat;">
+
+    <!-- First Column (Image Background) -->
+    <div class="col-md-6">
+        
     </div>
 
-    <div class="col-md-6 col-sm-12 px-3 align-self-center">
+    <!-- Second Column (Content) -->
+    <div class="col-md-6 d-flex flex-column justify-content-right px-5 text-white order-md-2" style="height: 60vh;">
+        <div>
+            <h1 class="py-5">Admission Network</h1>
+            <p class="text-uppercase py-3 fs-5">We encourage, advise and give our students the opportunity to access higher education in a range of prestigious Universities and Colleges around the world to give them a better prospect for their future endeavours</p>
+        </div>
+        <div>
+            <a href="{% url 'signup' %}" class="btn btn-light btn-lg"> Our Story <i class="bi bi-arrow-right-circle"></i></a>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="row d-flex align-items-center justify-content-center p-5 ">
+    <div class="col-md-6 col-sm-12 text-center ">
+      <img src="{% static "images/About-us1.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    </div>  
+    <div class="col-md-6 px-md-5 align-self-center ">
       <h2 class="pb-3">OUR STORY</h2>
       <p>
         Admission Network Ltd functions under our parent company First Kare Academy Ltd and First Kare Ltd. First Kare Academy and First Kare Ltd were both incorporated in the year 2014 where we are a ROTO, RoATP, and Matrix accredited training center. We are offering Government-funded and Private-funded courses ranging from Care Certificate courses, Level-2 and Level-3 Business, Health and Social Care, Child Care, and Hospitality Management. First Kare Academy also offers Functional Skills Maths and English Entry level 1 to Entry level 3 and Level 1 & 2.
@@ -19,15 +38,13 @@
         First Kare Ltd is a recruitment company focusing on the Health and Social Care sector. Since 2014, over 5000 learners have successfully completed courses, with 70% gaining admission to UK Colleges and Universities. The academy recruits over 100 learners monthly and maintains strong connections with the local community, employers, and recruiters. The long-term goal involves expanding Admission Network to represent over 100 countries, facilitating easy access to admission processes and academic progression, aligning with a 5-year plan for global development.
       </p>
     </div>
-
   </div>
 </div>
 
-<div class="container-fluid p-0" style="background-color:#F8F0E5;">
-  <div class="row p-3 p-md-5">
-
-    <div class="col-md-6 px-md-5 align-self-center text-center">
-      <h2 class="pb-3">HOW WE WORK</h2>
+<div class="container-fluid p-0" style="background-color:#EEF5FF;">
+  <div class="row d-flex align-items-center justify-content-center p-5 ">
+    <div class="col-md-6  ">
+      <h2 class="">HOW WE WORK</h2>
       <p>
         Our students have the opportunity to choose and apply to a higher education course from a range of universities and colleges that match their educational background, experience & interests. Our partner schools, colleges, and universities will gain a diversified campus by bringing in quality students from around the world.
       </p>
@@ -38,18 +55,15 @@
         Our global team of experts provides students with support at every step, including guidance for their applications, ensuring all necessary documents are submitted, communicating with the universities and colleges, assisting with the visa process for a successful application process to begin their journey in higher education.
       </p>
     </div>
-
-    <div class="col-md-6 text-center mt-4 mt-md-0">
-      <img src="{% static "images/slide-2.jpg" %}" class="img-fluid card2" alt="Sample Image">
+    <div class="col-md-6 col-sm-12 text-center ">
+      <img src="{% static "images/About-us1.jpg" %}" class="img-fluid card2" alt="Sample Image">
     </div>
-
   </div>
 </div>
 
-<div class="container-fluid p-0 p-md-5" style="background-color:#FFF;">
-  <div class="row  p-md-5">
-
-    <div class="col-md-12 px-md-5 align-self-center text-center">
+<div class="container-fluid p-0 " >
+  <div class="row d-flex align-items-center justify-content-center p-5">
+    <div class="col-12 text-center">
       <h2 class="pb-3">OUR FREE SERVICES</h2>
       <p>
         The Admission Network Platform leads you to enhance the diversity of your campus by linking you with highly motivated quality students from around the world.
@@ -115,6 +129,78 @@
     
 
   </div>
+</div>
+
+
+
+<div class="container-fluid p-0 " style="Background-color: #EEF5FF;" >
+  <div class="row d-flex align-items-center justify-content-center p-5">
+    <div class="col-12 text-center">
+      <h2 class="pb-3">OUR VALUES</h2>
+      <p>
+        At Admission Network, we commit to:
+      </p>
+ 
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 px-md-5">
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Student_Success_uirv.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Helping Students Achieve Success</strong></h5>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Caring_uirv.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Caring About Each Other</strong></h5>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Customer_Experience_uirv.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Delivering an A+ Customer Experience</strong></h5>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Ownership_uirv.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Taking Ownership</strong></h5>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Innovating_uirv.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Innovating and Improving</strong></h5>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow text-center h-100 card2" >
+          <img src="{% static "images/Benefits_Access.png" %}" class="card-img-top1 pt-4">
+        <div class="card-body">
+          <h5 class="card-title " style="color:#0064E1;"><strong>Making work Fun</strong></h5>
+        </div>
+        </div>
+      </div>
+
+   
+    
+
+  </div>
+</div>
+
+
+  <!-- How It Works Section -->
 </div>
 
 

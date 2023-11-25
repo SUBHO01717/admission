@@ -124,6 +124,7 @@ def send_contact_email(user_email, first_name):
     email.send()
 
 def ContactUs(request):
+    office=GlobalOffice.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -138,7 +139,7 @@ def ContactUs(request):
     else:
         form = ContactForm()
     
-    return render(request, 'contact_us.html', {'form': form})
+    return render(request, 'contact_us.html', {'form': form, 'office':office})
 
 
 def EventCreate(request):

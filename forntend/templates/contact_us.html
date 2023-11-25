@@ -44,7 +44,7 @@
     </div>
   
     <div class="container mx-auto mt-5">
-      <h2 class="text-center p-5"><strong>Available Route</strong></h2>
+      <h2 class="text-center p-5"><strong>Available Route for Head Office UK</strong></h2>
       <div class="row g-2 mb-2">
         <div class="col-sm-6">
           <div class="card p-3 h-100 card2">
@@ -83,7 +83,34 @@
         <!-- ... (similar adjustments for the other cards) ... -->
       </div>
     </div>
-  
+    
+    <div class="container-fluid mx-auto p-5" style="background-color: #EEF5FF;">
+      <h2 class="text-center"><strong>GLOBAL OFFICES</strong></h2>
+ 
+      <div class="row justify-content-center">
+        {% for office in office %} 
+ 
+        <div class="col-sm-12  col-md-3 g-3">
+          <div class="card h-100" >
+            <img src="{{office.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{office.country}}</strong></h5>
+              <p class="card-text">{{office.address}}</p>
+              <span class="card-text"><a href="{{office.email}}">{{office.email}}</a></span><br>
+              
+              <span class="card-text">Contact Number : {{office.contact_number}}</span>
+            </div>
+          </div>
+
+
+        </div>
+   
+        {% endfor %}
+      </div>
+        
+      </div>
+    </div>
+
     <div class="container-fluid mx-auto p-5" style="background-color: #F5E8C7;">
       <h2 class="text-center p-5"><strong>Get in Touch</strong></h2>
       <div class="row">
