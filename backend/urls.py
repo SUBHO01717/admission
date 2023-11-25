@@ -39,6 +39,14 @@ urlpatterns = [
    path('agent_application_edit/<int:pk>/', AgentAppEdit, name='agent_application_edit'),
    path('agent_application_delete/<int:pk>/', AgentAppDelete, name='agent_application_delete'),
    
+   path('event_edit/<int:pk>/', EventEdit, name='event_edit'),
+   path('event_details/<int:pk>/', EventDetail, name='event_details'),
+   path('event_delete/<int:pk>/', EventDelete, name='event_delete'),
+   
+   path('blog_edit/<int:pk>/', BlogEdit, name='blog_edit'),
+   path('blog_details/<int:pk>/', BlogDetail, name='blog_details'),
+   path('blog_delete/<int:pk>/', BlogDelete, name='blog_delete'),
+   
 
    
    

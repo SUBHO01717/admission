@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Count,Sum
 from . models import *
 from accounts.models import *
+from forntend.models import *
 from .forms import *
+from forntend.forms import *
 from django.views import generic
 from django.contrib import messages
 from . decorators import *
@@ -17,6 +19,8 @@ def Profile(request):
     course=Course.objects.all()
     intake=Intake.objects.all()
     campus=Campus.objects.all()
+    blogs=BlogNews.objects.all()
+    events=Events.objects.all()
     student = User.objects.filter(userprofile__userrole="Student")
     partner = User.objects.filter(userprofile__userrole="Partner")
     agent = User.objects.filter(userprofile__userrole="Agent")
@@ -74,6 +78,8 @@ def Profile(request):
         'student':student,
         'partner':partner,
         'agent':agent,
+        'blogs':blogs,
+        'events':events,
         'agentapplication':agentapplication,
         'application':application,
         'status_counts':status_counts,
@@ -426,3 +432,66 @@ def PartnerEdit(request,pk):
         profile_form = ProfileForm(instance=user.userprofile)
 
     return render(request,"edits/partner_edit.html", {'user_form': user_form, 'profile_form': profile_form})
+
+
+def EventEdit(request,pk):
+    event=Events.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES, instance=event, )
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Event Created Successfully!")
+            return redirect('userprofile')
+    else:
+         form = EventForm(instance=event)
+
+    return render(request, 'create/event_create.html' , {'form': form})
+
+def EventDetail(request,pk):
+    event=Events.objects.get(pk=pk)
+    return render(request, 'details/event_details_back.html' , {'event': event})
+
+def EventDelete(request,pk):
+    event=Events.objects.get(pk=pk)
+    if request.method == 'POST':
+        event.delete()
+        messages.success(request, "Event Deleted Successfully!")
+        return redirect('userprofile')
+    return render(request, 'details/event_delete.html')
+
+def BlogNewsCreate(request):    
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Blog Created Successfully!")
+            return redirect('userprofile')
+    else:
+         form = BlogForm()
+
+    return render(request, 'create/blog_and_news_create.html' , {'form': form})
+
+def BlogEdit(request,pk):
+    blog=BlogNews.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog, )
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Blog Updated Successfully!")
+            return redirect('userprofile')
+    else:
+         form = BlogForm(instance=blog)
+
+    return render(request, 'create/blog_and_news_create.html' , {'form': form})
+
+def BlogDetail(request,pk):
+    blog=BlogNews.objects.get(pk=pk)
+    return render(request, 'details/blog_details_back.html' , {'blog': blog})
+
+def BlogDelete(request,pk):
+    blog=BlogNews.objects.get(pk=pk)
+    if request.method == 'POST':
+        blog.delete()
+        messages.success(request, "Blog Deleted Successfully!")
+        return redirect('userprofile')
+    return render(request, 'details/blog_delete.html')

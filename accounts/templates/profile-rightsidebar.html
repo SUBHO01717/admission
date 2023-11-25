@@ -1,4 +1,4 @@
-<div class="col mx-auto mx-lg-3 py-3 bg-white shadow py-3" style="border-radius:5px;">
+<div class="  " style="border-radius:5px;">
 
     <div class="row">
  
@@ -113,6 +113,12 @@
           </li>
           <li class="nav-item"> 
             <a class="nav-link link-dark" data-bs-toggle="tab" href="#course">All Courses</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#events">All Events</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link link-dark" data-bs-toggle="tab" href="#blog">All Blogs/News</a>
           </li>
    
         </ul>
@@ -456,7 +462,74 @@
               </tbody>
             </table>
           </div>
-   
+          <div class="tab-pane fade" id="events">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Event Date</th>
+                  <th>Event Title</th>
+                  <th colspan="3">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for event in events %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{event.event_date}}</td>
+                  <td>{{event.title}}</td>
+                  
+                  <td>
+                    <a href="{% url 'event_details' event.pk %}" class="btn btn-success btn-sm">View </a>
+                    
+                  </td>
+                  <td>
+                    <a href="{% url 'event_edit' event.pk %}" class="btn btn-success btn-sm">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="blog">
+            <table class="table table-responsive table-hover" style="font-size:14px !important;">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Blog/News Date</th>
+                  <th>Blog/News Title</th>
+                  <th colspan="3">Actions</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for blog in blogs %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{blog.event_date}}</td>
+                  <td>{{blog.title}}</td>
+                  
+                  <td>
+                    <a href="{% url 'blog_details' blog.pk %}" class="btn btn-success btn-sm">View </a>
+                    
+                  </td>
+                  <td>
+                    <a href="{% url 'blog_edit' blog.pk %}" class="btn btn-success btn-sm">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'blog_delete' blog.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+       
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
 
 
         </div>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+
+
+    <div class="row" style="background: url('{% static "images/events.jpg" %}') center/cover no-repeat;">
+        <!-- First Column (Image Background) -->
+        <div class="col-md-12 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 50vh;">
+            <div class="text-center">
+                <h1 class="py-3 ">Event Details</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container p-5">
+        <div class="card mb-3">
+            <img src="{{ event.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h4 class="card-title">{{event.title}}</h4>
+              <h5 class="card-title">{{event.event_date}}</h5>
+              <p class="card-text">Venue: {{event.address}}</p>
+              <p class="card-text"><small class="text-muted"><a href="{{event.event_link}}" class="btn btn-success" target=”_blank”>Registration Link </a></small></p>
+            </div>
+          </div>
+     
+    </div>
+        
+ 
+    
+</div>
+{% endblock content %}

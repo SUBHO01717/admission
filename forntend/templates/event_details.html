@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="row" style="background: url('{{event.image.url}}') center/cover no-repeat;">
+      <!-- First Column (Image Background) -->
+      <div class="col-md-12 d-flex flex-column justify-content-center px-5 text-white order-md-1" style="height: 80vh;">
+          <div class="text-center">
+              <h1 class="py-3 ">{{event.title}}</h1>
+            
+          </div>
+      </div>
+  </div>
+
+
+
+{% endblock content %}

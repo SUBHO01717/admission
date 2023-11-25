@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from backend.models import *
 from. forms import *
+from. models import *
 from django.contrib import messages
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.utils.html import strip_tags
 from django.template.loader import render_to_string
 import threading
+from backend.decorators import *
 # Create your views here.
 
 
@@ -24,9 +26,11 @@ def Partner(request):
 def TermsConditions(request):
     return render(request, 'terms_conditions.html')
 def NewsBlogs(request):
-    return render(request, 'news_and_blogs.html')
-def Events(request):
-    return render(request, 'events.html')
+    blogs=BlogNews.objects.all()
+    return render(request, 'news_and_blogs.html',{'blogs':blogs} )
+def EventAll(request):
+    events=Events.objects.all()
+    return render(request, 'events.html', {'events':events})
 
 def StudyUK(request):
     return render(request, 'why_in_uk.html')
@@ -137,4 +141,27 @@ def ContactUs(request):
     return render(request, 'contact_us.html', {'form': form})
 
 
+def EventCreate(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Event Created Successfully!")
+            return redirect('userprofile')
+    else:
+         form = EventForm()
+
+    return render(request, 'create/event_create.html' , {'form': form})
+
+def BlogNewsCreate(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Blog Created Successfully!")
+            return redirect('userprofile')
+    else:
+         form = BlogForm()
+
+    return render(request, 'create/blog_and_news_create.html' , {'form': form})
 

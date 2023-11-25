@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-lg-3 col-md-3 bg-white shadow py-3 " style="border-radius:5px;">
+<div class="shadow bg-white h-100 py-3 " style="border-radius:5px;">
     
     <div class="text-center">
       {% if request.user.userprofile.user_pic %}
@@ -27,6 +27,13 @@
       <a href="{% url 'course_create' %}"class="nav-link link-dark ">Create Course</a>
       <a href="{% url 'create_campus' %}"class="nav-link link-dark ">Create Campus</a>
       <a href="{% url 'student_application_create2' %}"class="nav-link link-dark ">Create Student Application</a>
+    <hr>
+    <h5>Event,Blog& News</h5>
+    <hr>
+  
+      <a href="{% url 'event_create' %}"class="nav-link link-dark ">Create Event</a>
+      <a href="{% url 'blog_and_news_create' %}"class="nav-link link-dark ">Create Blog & News</a>
+   
     <hr>
     
     {% endif %}
