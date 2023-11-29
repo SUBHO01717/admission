@@ -34,4 +34,8 @@ class Bookingform(ModelForm):
     class Meta:
         model=BookApointment
         fields = "__all__"
+        exclude=["status"]
+        widgets = {
+            'date': forms.DateInput( attrs={'class': 'form-control','type': 'date' }),
+        }
  
