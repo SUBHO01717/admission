@@ -74,7 +74,9 @@ class StudentAppForm2(ModelForm):
     class Meta:
         model = Application
         exclude=["applicant", "application_status"]
- 
+        
+        
+
 
         
 

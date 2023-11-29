@@ -9,7 +9,7 @@
     <div class="background-image ">
       <!-- Content you want to display on top of the background image goes here -->
       <h1>Contact Us </h1> <br>
-      <h3><a href="#" class="link-style"><strong>Book Appointment</strong></a></h3>
+      <h3><a href="{% url 'book_appointment'%}" class="link-style"><strong>Book Appointment</strong></a></h3>
     </div>
 
 
@@ -92,7 +92,10 @@
  
         <div class="col-sm-12  col-md-3 g-3">
           <div class="card h-100" >
+            {% if office.image %}
             <img src="{{office.image.url}}" class="card-img-top" alt="...">
+            {% else %}
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title"><strong>{{office.country}}</strong></h5>
               <p class="card-text">{{office.address}}</p>

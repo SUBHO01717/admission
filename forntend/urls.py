@@ -30,5 +30,6 @@ urlpatterns = [
     path('universrity_details/<int:pk>/',UniversrityDetails,name="universrity_details"),
     path('course_details/<int:pk>/',DetailCourse,name="course_details"),
     path('contact_us',ContactUs,name="contact_us"),
+    path('book_appointment',UserBookAppointments,name="book_appointment"),
   
 ]

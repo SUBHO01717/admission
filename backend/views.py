@@ -495,3 +495,5 @@ def BlogDelete(request,pk):
         messages.success(request, "Blog Deleted Successfully!")
         return redirect('userprofile')
     return render(request, 'details/blog_delete.html')
+
+

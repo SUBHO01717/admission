@@ -166,3 +166,30 @@ def BlogNewsCreate(request):
 
     return render(request, 'create/blog_and_news_create.html' , {'form': form})
 
+
+def appointment_email(user_email, first_name):
+    subject = "Admission Network - Appointment Booked!"
+    from_email = "info@admissionnetwork.com"
+    html_message = render_to_string('email/booking.html', {'first_name': first_name, 'email':user_email})
+    plain_message = strip_tags(html_message)
+    email = EmailMultiAlternatives(subject, plain_message, from_email, to=[user_email])
+    email.attach_alternative(html_message, "text/html")
+    email.send()
+
+def UserBookAppointments(request):
+    
+    if request.method == 'POST':
+        form = Bookingform(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "We've received your message. One of our executives will contact you shortly.")
+            
+            # Corrected email_thread parameters
+            email_thread = threading.Thread(target=appointment_email, args=(form.cleaned_data['email'], form.cleaned_data['first_name']))
+            email_thread.start()
+            
+            return redirect('index')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'book_appointment.html', {'form': form,})

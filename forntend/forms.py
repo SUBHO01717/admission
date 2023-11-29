@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from . models import *
+from backend.models import *
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 
@@ -27,3 +28,10 @@ class BlogForm(ModelForm):
             'date': forms.DateInput( attrs={'class': 'form-control','type': 'date' }),
         }
         details = forms.CharField(widget = CKEditorWidget())
+
+
+class Bookingform(ModelForm):
+    class Meta:
+        model=BookApointment
+        fields = "__all__"
+ 
