@@ -1,45 +1,46 @@
-<div class="shadow bg-white h-100 py-3 " style="border-radius:5px;">
-    
-    <div class="text-center">
-      {% if request.user.userprofile.user_pic %}
-      <img src="{{request.user.userprofile.user_pic.url}}" alt="hugenerd" class="rounded-circle img-fluid img-thumbnail" style="height:150px" >
-      {% else %}
-      NO PROFILE IMAGE
-      {% endif %}
-      
-    </div>
-      <a href="{% url 'userprofile'%}" class="nav-link link-dark my-3 "><h5>DASHBOARD</h5></a>
-      <hr>
-      <a href="{% url 'userprofile_edit'%}"class="nav-link link-dark ">Update Profile</a>
-      <a href="{% url 'password_change'%}"class="nav-link link-dark ">Change Password</a>
-    <hr>
-    {% if user.userprofile.userrole == "Agent" %}
-      <a href="{% url 'agent_application_create2'%}"class="nav-link link-dark ">Submit Student Application </a> 
-    {% elif user.userprofile.userrole == "Student" %}
-    <a href="{% url 'student_application_create2'%}"class="nav-link link-dark ">Submit Application </a> 
-    {% elif user.userprofile.userrole == "Staff" %}
-   
-   
-    <h5>University</h5>
-    <hr>
+
   
-      <a href="{% url 'create_university' %}"class="nav-link link-dark ">Create University</a>
-      <a href="{% url 'course_create' %}"class="nav-link link-dark ">Create Course</a>
-      <a href="{% url 'create_campus' %}"class="nav-link link-dark ">Create Campus</a>
-      <a href="{% url 'student_application_create2' %}"class="nav-link link-dark ">Create Student Application</a>
-    <hr>
-    <h5>Event,Blog& News</h5>
-    <hr>
-  
-      <a href="{% url 'event_create' %}"class="nav-link link-dark ">Create Event</a>
-      <a href="{% url 'blog_and_news_create' %}"class="nav-link link-dark ">Create Blog & News</a>
-   
-    <hr>
-    
+<div class="shadow py-2">
+  <div class="text-center">
+    {% if request.user.userprofile.user_pic %}
+    <img src="{{request.user.userprofile.user_pic.url}}" alt="hugenerd" class="rounded-circle img-fluid img-thumbnail" style="height:150px" >
+    {% else %}
+    NO PROFILE IMAGE
     {% endif %}
-    <hr>
-    <div class="text-center">
-      <a href="{% url "logout" %}"class="btn btn-danger ">Logout</a> 
-    </div>
     
   </div>
+    <a href="{% url 'userprofile'%}" class="nav-link link-dark my-3 "><h5>DASHBOARD</h5></a>
+    <hr>
+    <a href="{% url 'userprofile_edit'%}"class="nav-link link-dark ">Update Profile</a>
+    <a href="{% url 'password_change'%}"class="nav-link link-dark ">Change Password</a>
+  <hr>
+  {% if user.userprofile.userrole == "Agent" %}
+    <a href="{% url 'agent_application_create2'%}"class="nav-link link-dark ">Submit Student Application </a> 
+  {% elif user.userprofile.userrole == "Student" %}
+  <a href="{% url 'student_application_create2'%}"class="nav-link link-dark ">Submit Application </a> 
+  {% elif user.userprofile.userrole == "Staff" %}
+ 
+ 
+  <h5>University</h5>
+  <hr>
+
+    <a href="{% url 'create_university' %}"class="nav-link link-dark ">Create University</a>
+    <a href="{% url 'course_create' %}"class="nav-link link-dark ">Create Course</a>
+    <a href="{% url 'create_campus' %}"class="nav-link link-dark ">Create Campus</a>
+    <a href="{% url 'student_application_create2' %}"class="nav-link link-dark ">Create Student Application</a>
+  <hr>
+  <h5>Event,Blog& News</h5>
+  <hr>
+
+    <a href="{% url 'event_create' %}"class="nav-link link-dark ">Create Event</a>
+    <a href="{% url 'blog_and_news_create' %}"class="nav-link link-dark ">Create Blog & News</a>
+ 
+  <hr>
+  
+  {% endif %}
+  <hr>
+  <div class="text-center">
+    <a href="{% url "logout" %}"class="btn btn-danger ">Logout</a> 
+  </div>
+</div>
+    

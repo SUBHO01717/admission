@@ -1,13 +1,116 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <section style="background-color: #eee;">
-  <div class="row m-2 py-2">
-   {% include "profile-sidebar.html" %}
-    <div  class="col mx-3 bg-white shadow py-3" style="border-radius:5px;">
+ 
+  <div class="container-fluid p-0">
+    <div class="row"> 
+      <div class="col-12 col-md-2 py-2" style="background-color: white;">
+        {% include "profile-sidebar.html" %}
+      </div>
+      <div class="col py-2">
+        <div class=" bg-white shadow py-3" style="border-radius: 5px;">
+          <div class="card mb-3">
+            <div class="row g-0"  style="background-color:#363062">
+              <div class=" col-2 align-self-center">
+                {% if data.logo %}
+                <img src="{{data.logo.url}}" class="img-fluid rounded-start" alt="Logo" style="height:50%;" >
+                {% else %}
+                None
+                {% endif %}
+              </div> 
+              <div class="col-md-8 align-self-center">
+                <div class="card-body ">
+                  <h1 class="card-title text-white ">{{data.name}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background-color:#363062; border-radius:5px;" class="p-3 mb-3 shadow">
+            <p class=" fs-3 text-uppercase text-white" >Campuses</p>
+            <div class="row">   
+                {% for campus in campuses %}
+                 <div class="col-3">
+                  <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{campus.name}}</h5>
+                      <h5 ><u>Address</u></h5>
+                      <span class="card-text">{{campus.stree}}, {{campus.city}}</span>
+                      <span class="card-text">{{campus.state}}, {{campus.zip_code}}</span>
+                      <span class="card-text">{{campus.country}}</span>
+                    </div>
+                  </div>
+                 </div>
+                {% endfor %}
+              </div>
+          </div>
+  
+          <div style="background-color:#818FB4; border-radius:5px;" class="p-3 mb-3 shadow">
+            <p class=" fs-3 text-white text-uppercase" >Inatkes</p>
+                      <p class="text-white">Following Intake are available for the University</p>
+                      {% for intake in data.intakes.all %}
+                      <button class="btn btn-light"><strong>{{ intake.name }}</strong> - {{intake.start_from}} to {{intake.end_at}}  </button>
+                      {% endfor %}
+          </div>
+          <div style=" border-radius:5px;" class="p-3 shadow">
+            <p class=" fs-3  text-uppercase" >Course Offers</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Course Level</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Course Cost</th>
+                  <th scope="colspan=3">Course Inatkes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for course  in courses %}
+                <tr>
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{course.name}}</td>
+                  <td>{{course.degree_level}}</td>
+                  <td>{{course.duration}}</td>
+                  <td>&#163;{{course.fees}}</td>
+                  <td>
+                  {% for intake  in course.intakes.all %}
+                 <button class="btn btn-success">{{ intake.name }}</button>
+                  {% endfor %}
+                </td>
+                </tr>
+                {% endfor %}
+  
+          
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+{% comment %} <section style="background-color: #eee;">
+
+
+
+
+  <div class="row">
+    <div>
+      {% include "profile-sidebar.html" %}
+    </div>
+
+    <div>
+      <div  class="cmx-3 bg-white shadow py-3" style="border-radius:5px;">
         <div class="card mb-3">
           <div class="row g-0"  style="background-color:#363062">
-            <div class="col-md-4  align-self-center">
+            <div class="  align-self-center">
               {% if data.logo %}
               <img src="{{data.logo.url}}" class="img-fluid rounded-start" alt="Logo" style="height:50%;" >
               {% else %}
@@ -81,7 +184,9 @@
           </table>
         </div>
     </div>
+    </div>
   </div>
-</section>
+  
+</section> {% endcomment %}
 
 {% endblock content %}

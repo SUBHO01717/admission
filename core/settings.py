@@ -155,6 +155,14 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'send.one.com'
+# EMAIL_HOST_USER = 'info@admissionnetwork.net'
+# EMAIL_HOST_PASSWORD = 'Allan236@'
+# EMAIL_PORT = 465
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 #Auto Logout after a certain time
 SESSION_COOKIE_AGE = 1800 # 3 minutes. "1209600(2 weeks)" by default 
 SESSION_SAVE_EVERY_REQUEST = True # "False" by default

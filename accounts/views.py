@@ -13,7 +13,7 @@ import threading
 
 def send_welcome_email(user_email, user_name):
     subject = "Admission Network - Registration Complete!"
-    from_email = "allan01941@gmail.com"
+    from_email = "info@admissionnetwork.com"
     html_message = render_to_string('email/welcome-mail.html', {'useremail': user_name})
     plain_message = strip_tags(html_message)
 

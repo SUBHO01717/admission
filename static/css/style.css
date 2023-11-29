@@ -99,3 +99,8 @@ body{
 
   
 }
+.navbar-toggler{
+  width: 47px;
+  height: 34px;
+  background-color: #7eb444;
+}

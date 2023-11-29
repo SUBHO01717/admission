@@ -114,14 +114,17 @@ def DetailCourse(request,pk):
     context={'course':course,}
     return render(request, 'course_details.html', context)
 
+
+
 def send_contact_email(user_email, first_name):
     subject = "Admission Network - Registration Complete!"
-    from_email = "allan01941@gmail.com"
+    from_email = "info@admissionnetwork.net"
     html_message = render_to_string('email/booking.html', {'first_name': first_name, 'email':user_email})
     plain_message = strip_tags(html_message)
     email = EmailMultiAlternatives(subject, plain_message, from_email, to=[user_email])
     email.attach_alternative(html_message, "text/html")
     email.send()
+
 
 def ContactUs(request):
     office=GlobalOffice.objects.all()

@@ -3,25 +3,25 @@
 {% block content %}
 
 <section style="background-color: #eee;">
-  <div class="row g-2 ">
+  <div class="row g-2">
   
-   <div class="col-2 bg-white p-2 shadow ">
+   <div class="col-12 col-md-2 bg-white p-2 shadow">
     {% include "profile-sidebar.html" %}
    </div>
-   <div class="col-10 bg-white p-2">
+   <div class="col-12 col-md-10 bg-white p-2">
     {% if user.userprofile.userrole == "Agent" %}
-    {% include "agent_profile-rightsidebar.html" %}
+      {% include "agent_profile-rightsidebar.html" %}
     {% elif user.userprofile.userrole == "Student" %}
-    {% include "student_profile-rightsidebar.html" %}
+      {% include "student_profile-rightsidebar.html" %}
     {% elif user.userprofile.userrole == "Partner" %}
-    {% include "partner_profile-rightsidebar.html" %}
+      {% include "partner_profile-rightsidebar.html" %}
     {% else %}
-    {% include "profile-rightsidebar.html" %}
+      {% include "profile-rightsidebar.html" %}
     {% endif%}
    </div>
 
-
   </div>
 </section>
+
 
 {% endblock content %}
